@@ -32,4 +32,9 @@ Ni behöver driva detta projekt som ett agilt utvecklingsprojekt. Använd de cer
 - Sprintplanering
 - Retrospektiv
 
-Ni bör ha två sprintar i denna uppgift, där varje sprint är en vecka lång.
+Ni bör ha sprintar som är en vecka långa. 
+
+## Styling
+
+Försök att arbeta med så mycket styling ni hinner. Det är en rolig uppgift att ha med i ett portfolio framöver. Se till att era animationer är subtila. Arbeta med hero-images, kanske med lite video/ljud. Och skapa en bra struktur mer er scss redan från början. 
+
