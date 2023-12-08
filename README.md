@@ -1,4 +1,4 @@
-# The Webshop - Inlämningsuppgift 2
+# The Webshop - En inlämningsuppgift
 
 Denna uppgift går ut på att ni skall bygga en webbshop baserat på kraven här under.
 
