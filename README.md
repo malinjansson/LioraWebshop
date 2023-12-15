@@ -24,6 +24,12 @@ Detta projekt är ett vite-projekt där ni har en färdig struktur att arbeta vi
 - Att kunna öka/minska antalet produkter på kassasidan
 - Koden skall vara mycket väl strukturerad, väl formaterad samt innehålla god namngivning
 
+  **Agila arbetssätt:**
+- använda agil metod
+- genomföra agila aktiviteter
+- tillämpa verktyg som underlättar ett agilt arbetssätt
+
+
 ## Arbetssätt
 
 Ni behöver driva detta projekt som ett agilt utvecklingsprojekt. Använd de cermonier ni har lärt er såsom:
