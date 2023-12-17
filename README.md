@@ -32,13 +32,14 @@ Detta projekt är ett vite-projekt där ni har en färdig struktur att arbeta vi
 
 ## Arbetssätt
 
-Ni behöver driva detta projekt som ett agilt utvecklingsprojekt. Använd de cermonier ni har lärt er såsom:
+Ni behöver driva detta projekt som ett agilt utvecklingsprojekt. Använd cermonier & artefakter ni har lärt er såsom:
 
 - Daily standups
 - Sprintplanering
+- Backlog
 - Retrospektiv
 
-Ni bör ha sprintar som är en vecka långa. 
+Ni bör ha mer en än iteration, välj om ni vill ha sprintar eller köra Kanban
 
 ## Styling
 
