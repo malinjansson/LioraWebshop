@@ -27,7 +27,7 @@ footer {
                 letter-spacing: 0.5px;
                 @include m.forSize(desktop) {
                     margin-bottom: 12px;
-                    font-size: 14px;
+                    letter-spacing: 1px;
                   }
          }
     
@@ -38,6 +38,11 @@ footer {
             a {
                 font-family: v.$primary-font-family;
                 font-size: 14px;
+
+                @include m.forSize(desktop) {
+                    margin-bottom: 12px;
+                    letter-spacing: 0.5px;
+                  }
             }
          }
         }
