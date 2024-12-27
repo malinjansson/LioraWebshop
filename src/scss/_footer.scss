@@ -25,6 +25,10 @@ footer {
                 margin-top: 20px;
                 margin-bottom: 5px;
                 letter-spacing: 0.5px;
+                @include m.forSize(desktop) {
+                    margin-bottom: 12px;
+                    letter-spacing: 1px;
+                  }
          }
     
          li {
@@ -34,6 +38,12 @@ footer {
             a {
                 font-family: v.$primary-font-family;
                 font-size: 14px;
+                cursor: pointer;
+
+                @include m.forSize(desktop) {
+                    margin-bottom: 12px;
+                    letter-spacing: 0.5px;
+                  }
             }
          }
         }
