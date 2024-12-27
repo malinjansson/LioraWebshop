@@ -4,9 +4,37 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <title>Liora</title>
   </head>
   <body>
+
+    <!--Header/Navbar-->
+    <header>
+      <nav>
+        <label for="menu-toggle" class="hamburger-menu" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </label>
+        <input type="checkbox" id="menu-toggle" hidden />
+
+        <ul class="nav-menu">
+          <li><a href="#">News</a></li>
+          <li><a href="#">Posters</a></li>
+          <li><a href="#">Bestsellers</a></li>
+        </ul>
+
+        <h1 class="logo">LIORA</h1>
+
+        <section class="cart-icon">
+          <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+        </section>
+      </nav>
+
+      <section class="header-image">
+        <img src="assets/posterwall.jpg" alt="Landing Page Image" />
+      </section>
+    </header>
+
       <main>
         <section><h2>New Arrivals</h2>
           <div>
@@ -50,6 +78,7 @@
           </section>
         </section>
     </footer>
+
     <script type="module" src="/src/ts/main.ts"></script>
   </body>
 </html>
