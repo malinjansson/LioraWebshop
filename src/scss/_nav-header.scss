@@ -1,0 +1,112 @@
+@use "mixins" as m;
+@use "variables" as v;
+
+//Header/Nav Style
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 0;
+    margin: 0;
+    background-color: v.$background-color;
+
+    .header-image {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        margin: 0;
+        height: 60px;
+
+        .nav-menu {
+            display: none;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 50px;
+    
+            li {
+                margin-left: v.$gap;
+    
+                a {
+                    font-family: v.$primary-font-family;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    color: v.$primary-color;
+                    text-decoration: none;
+    
+                    &:hover {
+                        color: gray;
+                    }
+                }
+            }
+    
+        }
+
+
+        .logo {
+            font-family: v.$secondary-font-family;
+            font-size: 48px;
+            font-weight: bold;
+        }
+        
+        .cart-icon {
+            font-size: 28px;
+            color: black;
+        
+            a { 
+                &:hover {
+                    color: gray;
+                }
+            }
+
+            i {
+                color: black;
+            }
+        }
+        
+        .hamburger-icon {
+            font-size: v.$width-icon;
+            display: block;
+        
+            &:hover {
+                color: gray;
+            }
+        }
+    }
+
+    @include m.forSize(desktop) {
+        nav {
+            .nav-menu {
+                display: flex;
+                gap: v.$gap;
+            }
+
+            .logo {
+                font-family: v.$secondary-font-family;
+                font-size: 48px;
+                font-weight: bold;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+
+            .hamburger-icon {
+                display: none;
+            }
+        }
+    }
+
+    
+}
+
