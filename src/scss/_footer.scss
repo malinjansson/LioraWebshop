@@ -25,6 +25,10 @@ footer {
                 margin-top: 20px;
                 margin-bottom: 5px;
                 letter-spacing: 0.5px;
+                @include m.forSize(desktop) {
+                    margin-bottom: 12px;
+                    font-size: 14px;
+                  }
          }
     
          li {
