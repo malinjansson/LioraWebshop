@@ -1,1 +1,12 @@
+<<<<<<< HEAD
 @use "homepage-content";
+=======
+@use "mixins";
+@use "variables";
+@use "footer";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+>>>>>>> feature-footer
