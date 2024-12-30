@@ -1,0 +1,64 @@
+@use "variables" as v; 
+@use "mixins" as m;
+
+main {
+    .page-heading {
+        display:flex;
+        margin: auto;
+        margin-top: 2em;
+        margin-bottom: 1em;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 100;
+
+        @include m.forSize(desktop) {
+            margin-top: 5em;
+          }
+    }
+
+    #productpage-list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 3em;
+
+        .productContainer {
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+            align-items: flex-start;
+            font-family: v.$primary-font-family;
+
+
+            @include m.forSize(desktop) {
+                width: 23%;
+              }
+
+            .product-image {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+
+                @include m.forSize(desktop) {
+                    height: 380px;
+                  }
+            }
+
+            .product-title {
+                font-size: v.$h3-font-size;
+                font-weight: 300;
+                letter-spacing: 0.5px;
+                margin-top: 5px;
+                margin-bottom: 2px;
+            }
+
+            .product-price {
+                font-size: 12px;
+                letter-spacing: 0.5px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+
+}
