@@ -12,18 +12,25 @@
     <!--Header/Navbar-->
     <header>
       <nav>
-        <label for="menu-toggle" class="hamburger-menu" aria-label="Toggle navigation menu">
-          <i class="fas fa-bars"></i>
+        <input type="checkbox" id="menu-toggle" style="display: none;" />
+        <label id="menu-button" for="menu-toggle">
+          <div class="bars">
+            <div class="b1"></div>
+            <div class="b1"></div>
+            <div class="b1"></div>
+          </div>
         </label>
-        <input type="checkbox" id="menu-toggle" hidden />
 
         <ul class="nav-menu">
-          <li><a href="#">News</a></li>
-          <li><a href="#">Posters</a></li>
-          <li><a href="#">Bestsellers</a></li>
+          <li><a href="#News">News</a></li>
+          <li><a href="#News">Posters</a></li>
+          <li><a href="#News">Bestsellers</a></li>
         </ul>
 
-        <h1 class="logo">LIORA</h1>
+        <h1 class="logo">
+          <a href="index.html">LIORA</a>
+        </h1>
+
 
         <section class="cart-icon">
           <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
@@ -32,6 +39,7 @@
 
       <section class="header-image">
         <img src="assets/posterwall.jpg" alt="Landing Page Image" />
+        <a href="posters" class="hero-button">Shop Posters Here</a>
       </section>
     </header>
 
