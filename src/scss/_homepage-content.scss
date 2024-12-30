@@ -32,6 +32,7 @@ main {
         color: black;
         text-decoration: none;
         text-transform: uppercase;
+        font-family: v.$primary-font-family;
 
         &:hover {
           font-weight: bolder;
@@ -88,20 +89,22 @@ main {
         width: 100%;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         background-color: #fff;
+        object-fit: cover;
       }
       .homepage-title-price-container {
         display: flex;
         flex-direction: column;
         gap: 2px;
+        font-family: v.$primary-font-family;
         .homepage-product-title {
           font-size: v.$h3-font-size;
-          font-family: v.$secondary-font-family;
+          font-weight: 300;
+          letter-spacing: 0.5px;
         }
 
         .homepage-product-price {
-          font-size: 0.8rem;
+          font-size: 0.8em;
           color: #333;
-          font-weight: 600;
         }
       }
     }
