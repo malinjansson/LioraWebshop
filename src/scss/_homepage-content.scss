@@ -5,7 +5,21 @@ main {
   padding: 35px 0;
   width: 80%;
   margin: auto;
+main {
+  padding: 35px 0;
+  width: 80%;
+  margin: auto;
 
+  .new-arrivals-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    h2 {
+      font-size: v.$h2-font-size;
+      font-family: v.$secondary-font-family;
+    }
   .new-arrivals-section {
     display: flex;
     align-items: center;
@@ -21,7 +35,16 @@ main {
       display: flex;
       align-items: center;
       gap: 15px;
+    div {
+      display: flex;
+      align-items: center;
+      gap: 15px;
 
+      .dash {
+        background-color: v.$primary-color;
+        width: 30px;
+        height: 1px;
+      }
       .dash {
         background-color: v.$primary-color;
         width: 30px;
