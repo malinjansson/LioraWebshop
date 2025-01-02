@@ -34,6 +34,8 @@ const selectSize = document.createElement ("p");
 selectSize.innerHTML = "Select size";
 selectSize.classList.add("select-size");
 
+const sizeContainer = document.createElement ("section");
+sizeContainer.classList.add("size-container");
 const productSize = document.createElement("select");
 productSize.id = "size-select";
 productSize.classList.add("product-size");
@@ -42,8 +44,10 @@ for (let i = 0; i < product.sizes.length; i++) {
   const option = document.createElement("option");
   option.value = size.size;
   option.innerHTML = `${size.size}`;
+  sizeContainer.appendChild(productSize);
   productSize.appendChild(option);
 }
+
 productSize.addEventListener("change", () => {
   const selectedSize = productSize.value;
   const selectedProduct = product.sizes.find(size => size.size === selectedSize);
@@ -83,7 +87,7 @@ productDescription.classList.add("product-description");
 infoContainer.appendChild(productTitle);
 infoContainer.appendChild(choosenPrice);
 infoContainer.appendChild(selectSize);
-infoContainer.appendChild(productSize);
+infoContainer.appendChild(sizeContainer);
 infoContainer.appendChild(productStatus);
 infoContainer.appendChild(addToBagContainer);
 infoContainer.appendChild(headingDescription);
