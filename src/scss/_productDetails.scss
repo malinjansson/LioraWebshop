@@ -12,7 +12,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap: 50px;
+        gap: 3.5em;
         padding-top: 5em;
         padding-bottom: 1em;
       }
@@ -40,7 +40,7 @@
         width: 100%;
 
         @include m.forSize(desktop) {
-            width: 40%;
+            width: 35%;
           }
 
     }
@@ -57,9 +57,14 @@
     .select-size {
         font-family: v.$primary-font-family;
         margin-top: 20px;
+        margin-bottom: 10px;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-size: 14px;
+
+        @include m.forSize(desktop) {
+            margin-top: 3em;
+          }
     }
 
    .product-size-container {
@@ -136,7 +141,7 @@
 
    #product-status {
     color: v.$primary-color;
-    margin-left: 10px;
+    margin-left: 2px;
     padding-top: 15px;
    }
 
@@ -147,7 +152,7 @@
    .product-in-stock::after {
     content: "✓";
     position: absolute;
-    left: 20%;
+    left: 21%;
     top: 70%;
     transform: translateY(-50%);
     background-color: #4CAF50; 
@@ -161,7 +166,7 @@
     font-size: 10px; 
 
     @include m.forSize(desktop) {
-        left: 13%;
+        left: 15%;
       }
    }
 
@@ -173,7 +178,7 @@
     content: "✖";
     position: absolute;
     left: 29%;
-    top: 70%;
+    top: 75%;
     transform: translateY(-50%);
     background-color: #f21414; 
     color: white; 
@@ -186,7 +191,7 @@
     font-size: 10px; 
 
     @include m.forSize(desktop) {
-        left: 19%;
+        left: 21%;
       }
    }
 
@@ -199,7 +204,7 @@
             font-family: v.$primary-font-family;
             font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             background-color: v.$primary-color;
             color: v.$secondary-color;
             border: none;
@@ -208,7 +213,8 @@
             cursor: pointer;
 
             @include m.forSize(desktop) {
-               font-size: 12px;
+               font-size: 14px;
+               padding: 15px;
               }
         }
     }
@@ -216,6 +222,9 @@
     .product-description-heading {
         padding-top: 2em;
         padding-bottom: 0.2em;
+        font-family: v.$secondary-font-family;
+        font-weight: 400;
+        letter-spacing: 0.5px;
     }
 
     .product-description {
