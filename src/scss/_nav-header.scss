@@ -12,23 +12,23 @@ header {
     background-color: v.$background-color;
 
     .header-image {
-        position: relative; 
+        position: relative;
 
         img {
             width: 100%;
             height: auto;
-            object-fit: cover; 
+            object-fit: cover;
 
             @include m.forSize(desktop) {
-                height: 90vh; 
+                height: 95vh;
             }
         }
 
         .hero-button {
             position: absolute;
-            bottom: 20px; 
-            left: 50%; 
-            transform: translateX(-50%); 
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             padding: 10px 20px;
             background-color: black;
             color: white;
@@ -38,7 +38,7 @@ header {
             text-decoration: none;
             border: none;
             cursor: pointer;
-            border-radius: 4px; 
+            border-radius: 4px;
         }
     }
 
@@ -50,12 +50,12 @@ header {
         margin: 0;
         height: 60px;
         box-sizing: border-box;
-        position: sticky; 
-        top: 0; 
+        position: fixed;
+        top: 0;
+        width: 100%;
         background-color: v.$background-color;
         z-index: 1000;
 
-        
         #menu-button {
             cursor: pointer;
             z-index: 1001;
@@ -69,45 +69,43 @@ header {
 
                 div {
                     width: 100%;
-                    height: 2px; 
+                    height: 2px;
                     background-color: v.$primary-color;
                     transition: all 0.3s ease;
-                    transform-origin: center center; 
+                    transform-origin: center center;
                 }
             }
         }
 
-
         #menu-toggle:checked + #menu-button .bars {
             div:nth-child(1) {
-                transform: rotate(50deg) translateY(10px); 
+                transform: rotate(50deg) translateY(10px);
             }
             div:nth-child(2) {
-                opacity: 0; 
+                opacity: 0;
             }
             div:nth-child(3) {
-                transform: rotate(-50deg) translateY(-10px); 
+                transform: rotate(-50deg) translateY(-10px);
             }
         }
 
-       
         .nav-menu {
             display: none;
             flex-direction: column;
             list-style: none;
-            position: fixed; 
-            top: 60px; 
+            position: fixed;
+            top: 60px;
             left: 0;
             width: 100%;
-            height: calc(100vh - 60px); 
+            height: calc(100vh - 60px);
             background-color: v.$background-color;
             margin: 0;
-            padding: 20px; 
-            z-index: 999; 
+            padding: 20px;
+            z-index: 999;
 
             li {
-                text-align: left; 
-                padding: 15px 0; 
+                text-align: left;
+                padding: 15px 0;
 
                 a {
                     font-family: v.$primary-font-family;
@@ -119,35 +117,32 @@ header {
             }
         }
 
-   
         #menu-toggle:checked ~ .nav-menu {
             display: flex;
         }
 
-       
         .logo {
             font-family: v.$secondary-font-family;
-            font-size: 32px; 
+            font-size: 32px;
             font-weight: bold;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 1001; 
+            z-index: 1001;
 
             a {
-                text-decoration: none; 
+                text-decoration: none;
                 color: inherit;
-                display: inline-block; 
+                display: inline-block;
             }
         }
 
-        // Cart Icon
         .cart-icon {
             font-size: 20px;
             color: v.$primary-color;
             position: absolute;
             right: 20px;
-            z-index: 1001; 
+            z-index: 1001;
 
             a {
                 text-decoration: none;
@@ -155,12 +150,11 @@ header {
             }
 
             i {
-                margin-left: 10px; 
+                margin-left: 10px;
             }
         }
     }
 
-  
     @include m.forSize(desktop) {
         nav {
             display: flex;
@@ -168,7 +162,7 @@ header {
             justify-content: space-between;
 
             #menu-button {
-                display: none; 
+                display: none;
             }
 
             .nav-menu {
@@ -177,8 +171,8 @@ header {
                 gap: 30px;
                 position: static;
                 height: auto;
-                padding: 0; 
-                margin: 0; 
+                padding: 0;
+                margin: 0;
                 align-items: center;
             }
 
@@ -194,4 +188,8 @@ header {
             }
         }
     }
+}
+
+main {
+    padding-top: 60px; /*fixed nav */
 }

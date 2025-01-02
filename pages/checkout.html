@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="/src/scss/_checkout.scss" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="menu-toggle" style="display: none;" />
+            <label id="menu-button" for="menu-toggle">
+              <div class="bars">
+                <div class="b1"></div>
+                <div class="b1"></div>
+                <div class="b1"></div>
+              </div>
+            </label>
+    
+            <ul class="nav-menu">
+              <li><a href="#News">News</a></li>
+              <li><a href="#News">Posters</a></li>
+              <li><a href="#News">Bestsellers</a></li>
+              
+            </ul>
+    
+            <h1 class="logo">
+              <a href="index.html">LIORA</a>
+            </h1>
+    
+    
+            <section class="cart-icon">
+              <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+            </section>
+          </nav>
+      </header>
+      
+
+    <main class="checkout">
+        <h2>Check out</h2>
+        <section class="delivery-info">
+            <h3>Delivery information</h3>
+            <form>
+                <input type="text" placeholder="Firstname">
+                <input type="text" placeholder="Lastname">
+                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Zip code">
+                <button type="submit">Complete Order</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <section class="info-container">
+            <section class="info-column">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">Liora</a></li>
+                </ul>
+            </section>
+            <section class="info-column">
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & returns</a></li>
+                </ul>
+            </section>
+            <section class="info-column">
+                <h3>Social</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ul>
+            </section>
+            <section class="info-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms & conditions</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </section>
+        </section>
+        <section class="copyright">
+            <p>&copy; 2025, Liora</p>
+        </section>
+    </footer>
+</body>
+</html>
