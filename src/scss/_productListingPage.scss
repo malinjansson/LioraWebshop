@@ -1,6 +1,7 @@
 @use "variables" as v; 
 @use "mixins" as m;
 
+
     .page-heading {
         display:flex;
         justify-content: center;
@@ -8,13 +9,13 @@
         margin-bottom: 1em;
         text-transform: uppercase;
         font-size: v.$h2-font-size;
-        font-weight: 100;
+        font-weight: 300;
         letter-spacing: 1px;
 
-        @include m.forSize(desktop) {
-            margin-top: 3em;
-            margin-bottom: 2em;
-          }
+        & {@include m.forSize(desktop) {
+          margin-top: 2em;
+          margin-bottom: 2em;
+        }};
     }
 
     #productpage-list {
@@ -23,40 +24,52 @@
         justify-content: space-around;
         gap: 10px;
         flex-wrap: wrap;
-        margin-bottom: 2em;
+        margin-bottom: 1em;
+
+        & {@include m.forSize(desktop) {
+          margin-bottom: 3em;
+        }};
 
         .productContainer {
             display: flex;
             flex-direction: column;
-            width: 48%;
+            width: 45%;
             align-items: flex-start;
             font-family: v.$primary-font-family;
+            cursor: pointer;
 
 
-            @include m.forSize(desktop) {
-                width: 23%;
-              }
+            & {@include m.forSize(desktop) {
+              width: 23%;
+            }};
 
             .product-image {
                 width: 100%;
-                height: 300px;
+                height: 210px;
                 object-fit: cover;
 
-                @include m.forSize(desktop) {
-                    height: 380px;
-                  }
+                & {@include m.forSize(desktop) {
+                  height: 380px;
+                }};
             }
 
             .product-title {
-                font-size: v.$h3-font-size;
+                font-size: 12px;
                 font-weight: 300;
                 letter-spacing: 0.5px;
                 margin-top: 5px;
                 margin-bottom: 2px;
+
+                & {@include m.forSize(desktop) {
+                  font-size: v.$h3-font-size;
+                }};
             }
 
             .product-price {
-                font-size: 12px;
+                font-size: 10px;
+                & {@include m.forSize(desktop) {
+                  font-size: 12px;
+                }};
                 letter-spacing: 0.5px;
                 margin-bottom: 20px;
             }
