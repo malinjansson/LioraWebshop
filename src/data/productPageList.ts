@@ -100,9 +100,9 @@ import { Product, SizeOption } from "../models/Product";
       ),
       new Product(
         9,
-        "Forest Poster",
-        "A peaceful forest with tall trees and sunlight streaming through.",
-        "/assets/forest.avif",
+        "Moon Poster",
+        "A magical poster featuring a full moon over a calm ocean.",
+        "/assets/moon.avif",
         true,
         [
           new SizeOption("30x40", 19.99),
