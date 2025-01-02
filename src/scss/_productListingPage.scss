@@ -13,10 +13,10 @@
         font-weight: 300;
         letter-spacing: 1px;
 
-        & {@include m.forSize(desktop) {
+        @include m.forSize(desktop) {
           margin-top: 3.5em;
           margin-bottom: 2em;
-        }};
+        };
     }
 
     #productpage-list {
@@ -26,9 +26,9 @@
         gap: 10px;
         flex-wrap: wrap;
 
-        & {@include m.forSize(desktop) {
+        @include m.forSize(desktop) {
           margin-bottom: 3em;
-        }};
+        };
 
         .productContainer {
             display: flex;
@@ -39,18 +39,19 @@
             cursor: pointer;
 
 
-            & {@include m.forSize(desktop) {
+           @include m.forSize(desktop) {
               width: 23%;
-            }};
+            };
 
             .product-image {
                 width: 100%;
                 height: 210px;
                 object-fit: cover;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
-                & {@include m.forSize(desktop) {
+                @include m.forSize(desktop) {
                   height: 380px;
-                }};
+                };
             }
 
             .product-title {
@@ -60,16 +61,16 @@
                 margin-top: 5px;
                 margin-bottom: 2px;
 
-                & {@include m.forSize(desktop) {
+                @include m.forSize(desktop) {
                   font-size: v.$h3-font-size;
-                }};
+                };
             }
 
             .product-price {
                 font-size: 10px;
-                & {@include m.forSize(desktop) {
+                @include m.forSize(desktop) {
                   font-size: 12px;
-                }};
+                };
                 letter-spacing: 0.5px;
                 margin-bottom: 20px;
             }
