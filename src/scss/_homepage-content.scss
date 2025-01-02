@@ -14,7 +14,7 @@ main {
 
     h2 {
       font-size: v.$h2-font-size;
-      font-family: v.$primary-font-family;
+      font-family: v.$secondary-font-family;
     }
 
     div {
@@ -24,8 +24,12 @@ main {
 
       .dash {
         background-color: v.$primary-color;
-        width: 30px;
+        width: 20px;
         height: 1px;
+
+        @include m.forSize(desktop) {
+        width: 30px;
+      }
       }
 
       a {
@@ -33,9 +37,10 @@ main {
         text-decoration: none;
         text-transform: uppercase;
         font-family: v.$primary-font-family;
+        letter-spacing: 1px;
 
         &:hover {
-          font-weight: bolder;
+          font-weight: 500;
         }
       }
     }
@@ -103,13 +108,13 @@ main {
         gap: 2px;
         font-family: v.$primary-font-family;
         .homepage-product-title {
-          font-size: v.$h3-font-size;
+          font-size: v.$h4-font-size;
           font-weight: 300;
           letter-spacing: 0.5px;
-        }∏∏
+        }
 
         .homepage-product-price {
-          font-size: 0.8em;
+          font-size: 12px;
         }
       }
     }

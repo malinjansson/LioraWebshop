@@ -12,33 +12,39 @@ header {
     background-color: v.$background-color;
  
     .header-image {
+        padding-top: 3em;
         position: relative;
 
         img {
             width: 100%;
-            height: auto;
+            height: 70vh;
             object-fit: cover;
 
             @include m.forSize(desktop) {
-                height: 95vh;
+                height: 94vh;
+                object-position: 10% 10%;
             }
         }
 
         .hero-button {
             position: absolute;
-            bottom: 20px;
+            bottom: 2.5em;
             left: 50%;
             transform: translateX(-50%);
-            padding: 10px 20px;
+            padding: 10px 10px;
             background-color: black;
             color: white;
             font-family: v.$primary-font-family;
-            font-size: 18px;
+            font-size: 14px;
             text-transform: uppercase;
             text-decoration: none;
             border: none;
             cursor: pointer;
             border-radius: 4px;
+
+            @include m.forSize(desktop) {
+                font-size: 18px;
+            }
         }
     }
  
@@ -110,10 +116,11 @@ header {
 
                 a {
                     font-family: v.$primary-font-family;
-                    font-size: 18px;
+                    font-size: 16px;
                     text-transform: uppercase;
                     color: v.$primary-color;
                     text-decoration: none;
+                    letter-spacing: 1px;
                 }
             }
         }
@@ -130,6 +137,7 @@ header {
             left: 50%;
             transform: translateX(-50%);
             z-index: 1001;
+            letter-spacing: 1px;
 
             a {
                 text-decoration: none;
