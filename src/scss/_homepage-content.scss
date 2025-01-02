@@ -1,11 +1,6 @@
 @use "variables" as v;
 @use "mixins" as m;
 
-main {
-  padding: 35px 0;
-  width: 80%;
-  margin: auto;
-
   .new-arrivals-section {
     display: flex;
     align-items: center;
@@ -114,4 +109,4 @@ main {
       }
     }
   }
-}
+
