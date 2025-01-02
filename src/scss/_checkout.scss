@@ -1,7 +1,7 @@
-@use "nav-header";
-@use "footer";
 @use "variables" as v;
 @use "mixins" as m;
+@use "nav-header";
+@use "footer";
 
 body {
   margin: 0;
@@ -73,7 +73,6 @@ main.checkout {
   text-align: center;
 
   h2 {
-    
     margin: 20px 0;
     text-align: center;
   }
