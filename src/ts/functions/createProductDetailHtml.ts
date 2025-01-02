@@ -7,8 +7,8 @@ export const ProductDetails = (product: Product) => {
   const productDetailContainer: HTMLElement | null = document.getElementById("product-detail-page") as HTMLDivElement;
   const posterHeading: HTMLElement | null = document.getElementById("product-page") as HTMLDivElement;
   posterHeading.style.display = "none";
-  productPageListContainer.style.display = "none"; // Hide product listing
-  productDetailContainer.style.display = "flex"; // Show product detail
+  productPageListContainer.style.display = "none"; 
+  productDetailContainer.style.display = "flex"; 
 
 const productImageContainer = document.createElement ("section");
 productImageContainer.classList.add("product-image-container");
