@@ -64,6 +64,49 @@
 }
 
 
+#thank-you-section {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  border-radius: 8px;
+  width: 80%;
+  margin: auto;
+  height: 48vh;
+
+  h2 {
+    font-size: v.$h2-font-size;
+    color: v.$primary-color;
+    font-family: v.$secondary-font-family;
+    margin-bottom: auto;
+
+  }
+
+  p {
+    font-size: v.$h2-font-size;
+    color: v.$primary-color;
+    font-family: v.$secondary-font-family;
+    margin-bottom: 20px;
+  }
+
+  button {
+
+    background-color: black;
+    color: #fff;
+    padding: 15px 0;
+    width: 70%;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: v.$secondary-font-family;
+  
+  }
+}
+
+
 @include m.forSize(desktop) {
   .checkout {
   
@@ -78,6 +121,20 @@
       button {
         font-size: 18px;
       }
+    }
+  }
+
+  #thank-you-section {
+    width: 80%;
+    height: 54vh;
+
+    h2, p {
+      font-size: 24px;
+    }
+
+    button {
+      width: 40%;
+      padding: 15px 0;
     }
   }
 }
