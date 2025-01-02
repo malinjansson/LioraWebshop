@@ -6,6 +6,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding-top: 3em;
 
     @include m.forSize(desktop) {
         display: flex;
@@ -56,7 +57,21 @@
             color: v.$secondary-color;
             border: none;
             padding: 10px;
+            margin-left: 0;
+            cursor: pointer;
         }
     }
+
+    .product-description-heading {
+        padding-top: 2em;
+        padding-bottom: 0.2em;
+    }
+
+    .product-description {
+        font-family: v.$secondary-font-family;
+        font-size: 14px;
+    }
+
+
 
 }
