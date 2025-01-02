@@ -34,6 +34,24 @@ const selectSize = document.createElement ("p");
 selectSize.innerHTML = "Select size";
 selectSize.classList.add("select-size");
 
+const productSize = document.createElement("select");
+productSize.id = "size-select";
+productSize.classList.add("product-size");
+for (let i = 0; i < product.sizes.length; i++) {
+  const size = product.sizes[i];
+  const option = document.createElement("option");
+  option.value = size.size;
+  option.innerHTML = `${size.size}`;
+  productSize.appendChild(option);
+}
+productSize.addEventListener("change", () => {
+  const selectedSize = productSize.value;
+  const selectedProduct = product.sizes.find(size => size.size === selectedSize);
+  if (selectedProduct) {
+    choosenPrice.innerHTML = `$${selectedProduct.price.toFixed(2)}`; 
+  }
+});
+
 const productStatus: HTMLElement | null = document.getElementById("product-status") as HTMLDivElement;
 if (product.inStock) {
   productStatus.innerHTML = "In stock";
@@ -65,6 +83,7 @@ productDescription.classList.add("product-description");
 infoContainer.appendChild(productTitle);
 infoContainer.appendChild(choosenPrice);
 infoContainer.appendChild(selectSize);
+infoContainer.appendChild(productSize);
 infoContainer.appendChild(productStatus);
 infoContainer.appendChild(addToBagContainer);
 infoContainer.appendChild(headingDescription);
