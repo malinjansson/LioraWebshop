@@ -43,12 +43,16 @@
         font-size: 14px;
     }
 
-    .product-size {
-        display: flex;
+    .size-container {
+        padding-top: 10px;
+        padding-bottom: 10px;
 
-        .product-option-container {
-            display: flex;
-            background-color: red;
+        .product-size {
+            width: 100%;
+            padding: 5px; 
+            font-size: 14px;
+            border: 1px solid v.$primary-color;
+            color: v.$primary-color;
         }
     }
 

@@ -37,11 +37,11 @@ selectSize.classList.add("select-size");
 const sizeContainer = document.createElement ("section");
 sizeContainer.classList.add("size-container");
 const productSize = document.createElement("select");
-productSize.id = "size-select";
 productSize.classList.add("product-size");
 for (let i = 0; i < product.sizes.length; i++) {
   const size = product.sizes[i];
   const option = document.createElement("option");
+  option.classList.add ("product-option");
   option.value = size.size;
   option.innerHTML = `${size.size}`;
   sizeContainer.appendChild(productSize);
