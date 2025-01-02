@@ -34,34 +34,50 @@ const selectSize = document.createElement ("p");
 selectSize.innerHTML = "Select size";
 selectSize.classList.add("select-size");
 
-const sizeContainer = document.createElement ("section");
-sizeContainer.classList.add("size-container");
-const productSize = document.createElement("select");
-productSize.classList.add("product-size");
-for (let i = 0; i < product.sizes.length; i++) {
-  const size = product.sizes[i];
-  const option = document.createElement("option");
-  option.classList.add ("product-option");
-  option.value = size.size;
-  option.innerHTML = `${size.size}`;
-  sizeContainer.appendChild(productSize);
-  productSize.appendChild(option);
-}
+const productSizeContainer = document.createElement ("section");
+productSizeContainer.classList.add("product-size-container");
+const productSizeBtn = document.createElement ("button");
+productSizeBtn.classList.add("product-size-btn");
+productSizeBtn.innerHTML =  `${product.sizes[0].size}`;
+const productSizeList = document.createElement ("div");
+productSizeList.classList.add("product-size-list");
 
-productSize.addEventListener("change", () => {
-  const selectedSize = productSize.value;
-  const selectedProduct = product.sizes.find(size => size.size === selectedSize);
-  if (selectedProduct) {
-    choosenPrice.innerHTML = `$${selectedProduct.price.toFixed(2)}`; 
-  }
-});
+for (let i = 0; i <product.sizes.length; i++) {
+  const size = product.sizes[i];
+  const productSizeOption = document.createElement("div");
+  productSizeOption.classList.add("product-size-option");
+
+  const productSize = document.createElement ("p")
+  productSize.classList.add("product-size");
+  productSize.innerHTML = `${size.size}`;
+
+  const sizePrice = document.createElement ("p");
+  sizePrice.classList.add("size-price");
+  sizePrice.innerHTML = `$${size.price.toFixed(2)}`;
+
+  productSizeOption.appendChild(productSize)
+  productSizeOption.appendChild(sizePrice);
+
+  productSizeOption.addEventListener("click", () => {
+    productSizeBtn.innerHTML = `${size.size}`;
+    choosenPrice.innerHTML = `$${size.price.toFixed(2)}`;
+    productSizeList.classList.remove("visible");
+  });
+  productSizeList.appendChild(productSizeOption);
+};
+
+productSizeBtn.addEventListener("click", () => {
+  productSizeList.classList.toggle("visible");
+})
 
 const productStatus: HTMLElement | null = document.getElementById("product-status") as HTMLDivElement;
 if (product.inStock) {
   productStatus.innerHTML = "In stock";
+  productStatus.classList.add("product-in-stock");
 }
 else {
   productStatus.innerHTML = "Out of stock";
+  productStatus.classList.add("product-out-of-stock");
 };
 
 const addToBagContainer = document.createElement("section");
@@ -74,20 +90,21 @@ addToBagContainer.addEventListener("click", () => {
   addToCart(product); 
 });
 
-// heading - description
 const headingDescription = document.createElement ("h4");
 headingDescription.classList.add("product-description-heading")
 headingDescription.innerHTML = "Description";
 
-// description 
 const productDescription = document.createElement ("p");
 productDescription.innerHTML = product.description;
 productDescription.classList.add("product-description");
 
+productSizeContainer.appendChild(productSizeBtn);
+productSizeContainer.appendChild(productSizeList);
+
 infoContainer.appendChild(productTitle);
 infoContainer.appendChild(choosenPrice);
 infoContainer.appendChild(selectSize);
-infoContainer.appendChild(sizeContainer);
+infoContainer.appendChild(productSizeContainer);
 infoContainer.appendChild(productStatus);
 infoContainer.appendChild(addToBagContainer);
 infoContainer.appendChild(headingDescription);
