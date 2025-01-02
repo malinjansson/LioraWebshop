@@ -1,4 +1,5 @@
 import { homePageList } from '../../data/homePageList';
+import { addToCart } from './addToCart';
 
 let homepageProducts = document.getElementById("homepage-products");
 
@@ -12,6 +13,10 @@ export const createHomePageList = () => {
     image.src = homePageList[i].imageUrl;
     image.alt = homePageList[i].title;
     image.classList.add("homepage-product-image");
+     // Lägg till klickhändelse på bilden
+     image.addEventListener("click", () => {
+      addToCart(homePageList[i]); // Lägg till produkten i kundvagnen
+    });
     
     productCard.appendChild(image);
 

@@ -14,7 +14,7 @@ main {
 
     h2 {
       font-size: v.$h2-font-size;
-      font-family: v.$secondary-font-family;
+      font-family: v.$primary-font-family;
     }
 
     div {
@@ -79,10 +79,16 @@ main {
       }
 
       .first-four-images {
-        height: 380px;
+        height: 230px;
+        @include m.forSize(desktop) {
+          height: 350px;
+        }
       }
       .next-four-images {
-        height: 480px;
+        height: 300px;
+        @include m.forSize(desktop) {
+          height: 480px;
+        }
       }
 
       .homepage-product-image {
@@ -100,11 +106,10 @@ main {
           font-size: v.$h3-font-size;
           font-weight: 300;
           letter-spacing: 0.5px;
-        }
+        }∏∏
 
         .homepage-product-price {
           font-size: 0.8em;
-          color: #333;
         }
       }
     }
