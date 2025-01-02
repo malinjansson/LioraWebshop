@@ -3,74 +3,9 @@
 @use "nav-header";
 @use "footer";
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: v.$primary-font-family;
-  background-color: v.$background-color;
-}
 
-header {
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    background-color: v.$background-color;
-    height: 60px;
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-
-      a {
-        text-decoration: none;
-        color: v.$primary-color;
-      }
-    }
-
-    ul {
-      display: flex;
-      gap: 20px;
-      list-style: none;
-      padding: 0;
-
-      li {
-        a {
-          text-decoration: none;
-          color: v.$primary-color;
-          font-family: v.$primary-font-family;
-
-          &:hover {
-            text-decoration: none; 
-          }
-        }
-      }
-    }
-
-    .cart-icon {
-      font-size: 20px;
-
-      a {
-        color: v.$primary-color;
-        text-decoration: none;
-
-        i {
-          margin-left: 10px;
-        }
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
-  }
-}
-
-main.checkout {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+.checkout {
+  margin-bottom: 50px;
 
   h2 {
     margin: 20px 0;
@@ -82,9 +17,10 @@ main.checkout {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    width: 100%;
-    max-width: 400px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+
 
     h3 {
       font-family: v.$secondary-font-family;
@@ -127,78 +63,20 @@ main.checkout {
   }
 }
 
-footer {
-  background-color: v.$background-color;
-  padding: 40px 20px;
-
-  .info-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 80%;
-    margin: 0 auto;
-
-    .info-column {
-      margin-bottom: 20px;
-      width: 45%;
-
-      h3 {
-        font-size: 16px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-          margin-bottom: 5px;
-
-          a {
-            text-decoration: none;
-            color: v.$primary-color;
-
-            &:hover {
-              text-decoration: none; 
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .copyright {
-    text-align: center;
-    font-size: 12px;
-    color: #888;
-    margin-top: 20px;
-  }
-}
 
 @include m.forSize(desktop) {
-  main.checkout {
-    width: 60%;
-
+  .checkout {
+  
     .delivery-info {
       padding: 30px;
+      width: 50%;
+      margin: auto;
     }
 
     form {
       input,
       button {
         font-size: 18px;
-      }
-    }
-  }
-
-  footer {
-    .info-container {
-      justify-content: space-around;
-
-      .info-column {
-        width: 20%;
       }
     }
   }

@@ -8,8 +8,6 @@
     <title>Liora</title>
   </head>
   <body>
- 
-    <!--Header/Navbar-->
     <header>
       <nav>
         <input type="checkbox" id="menu-toggle" style="display: none;" />
@@ -33,6 +31,7 @@
  
  
         <section class="cart-icon">
+          <span id="nav-shopping-bag-count"></span>
           <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
         </section>
       </nav>
@@ -86,7 +85,14 @@
           </section>
         </section>
     </footer>
- 
+    <div class="cart">
+      <span id="shopping-bag-count">Shopping bag (0)</span>
+      <p id="empty-cart-message">Your shopping bag is empty</p>
+      <ul id="cart-items"></ul>
+      <p>Subtotal: <span id="cart-total">0</span></p>
+  </div>
+        </div>
+
     <script type="module" src="/src/ts/main.ts"></script>
   </body>
 </html>

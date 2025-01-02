@@ -15,4 +15,9 @@ export class SizeOption {
       public sizes: SizeOption[]
     ) {}
   }
-  
+    export class CartItem {
+    constructor(
+      public product: Product,  
+      public quantity: number 
+    ) {}
+  }

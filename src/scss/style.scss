@@ -5,9 +5,17 @@
 @use "nav-header";
 @use "checkout";
 @use "productListingPage";
+@use "shoppingcart";
+@use "productDetails";
 
 
 * {
     margin: 0;
     padding: 0;
+}
+
+main {
+    padding: 35px 0;
+    width: 80%;
+    margin: auto;
 }

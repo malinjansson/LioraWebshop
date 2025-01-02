@@ -1,10 +1,10 @@
 @use "variables" as v;
 @use "mixins" as m;
-
 main {
   padding: 35px 0;
   width: 80%;
   margin: auto;
+
 
   .new-arrivals-section {
     display: flex;
@@ -14,7 +14,7 @@ main {
 
     h2 {
       font-size: v.$h2-font-size;
-      font-family: v.$secondary-font-family;
+      font-family: v.$primary-font-family;
     }
 
     div {
@@ -32,6 +32,7 @@ main {
         color: black;
         text-decoration: none;
         text-transform: uppercase;
+        font-family: v.$primary-font-family;
 
         &:hover {
           font-weight: bolder;
@@ -78,32 +79,40 @@ main {
       }
 
       .first-four-images {
-        height: 380px;
+        height: 230px;
+        @include m.forSize(desktop) {
+          height: 350px;
+        }
       }
       .next-four-images {
-        height: 480px;
+        height: 300px;
+        @include m.forSize(desktop) {
+          height: 480px;
+        }
       }
 
       .homepage-product-image {
         width: 100%;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         background-color: #fff;
+        object-fit: cover;
       }
       .homepage-title-price-container {
         display: flex;
         flex-direction: column;
         gap: 2px;
+        font-family: v.$primary-font-family;
         .homepage-product-title {
           font-size: v.$h3-font-size;
-          font-family: v.$secondary-font-family;
-        }
+          font-weight: 300;
+          letter-spacing: 0.5px;
+        }∏∏
 
         .homepage-product-price {
-          font-size: 0.8rem;
-          color: #333;
-          font-weight: 600;
+          font-size: 0.8em;
         }
       }
     }
   }
+
 }
