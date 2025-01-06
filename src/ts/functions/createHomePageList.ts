@@ -1,24 +1,25 @@
 import { homePageList } from '../../data/homePageList';
-import { addToCart } from './createCartHtml';
-
+import { ProductDetails } from './createProductDetailHtml';
+ 
 let homepageProducts = document.getElementById("homepage-products");
-
+ 
 export const createHomePageList = () => {
+ 
+  const productDetailContainer: HTMLElement | null = document.getElementById("product-detail-page") as HTMLDivElement;
+  productDetailContainer.style.display = "none";
+ 
   for (let i = 0; i < homePageList.length; i++) {
     const productCard = document.createElement("div");
     productCard.classList.add("homepage-product-card");
-
+ 
     const image = document.createElement("img");
     image.src = homePageList[i].imageUrl;
     image.alt = homePageList[i].title;
     image.classList.add("homepage-product-image");
-
-     image.addEventListener("click", () => {
-      addToCart(homePageList[i]); 
-    });
+  
     
     productCard.appendChild(image);
-
+ 
     image.classList.add("first-four-images"); 
   
     if (i < 4) {
@@ -34,16 +35,20 @@ export const createHomePageList = () => {
     title.textContent = homePageList[i].title;
     title.classList.add("homepage-product-title");
     titlePriceContainer.appendChild(title);
+ 
 
     const price = document.createElement("p");
     price.textContent = `Price from $${homePageList[i].sizes[0].price.toFixed(2)}`;
     price.classList.add("homepage-product-price");
     titlePriceContainer.appendChild(price);
-
+ 
+  
     productCard.appendChild(titlePriceContainer);
+
+    productCard.addEventListener("click", () => {
+     ProductDetails(homePageList[i]);
+       });
 
     homepageProducts?.appendChild(productCard);
   }
 };
-
- 
