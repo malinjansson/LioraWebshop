@@ -1,19 +1,22 @@
-import { CartItem, Product } from "../../models/Product";
+import { CartItem, Product, SizeOption } from "../../models/Product";
 
 let shoppingCartList: CartItem[] = [];
 
-export const addToCart = (product: Product) => {
-  const item = shoppingCartList.find(cartItem => cartItem.product.id === product.id);
+export const addToCart = (product: Product, selectedSize: SizeOption) => {
+  const item = shoppingCartList.find(
+    (cartItem) => cartItem.product.id === product.id && cartItem.selectedSize.size === selectedSize.size
+  );
 
   if (item) {
     item.quantity++;
   } else {
-    const newItem = new CartItem(product, 1);
+    const newItem = new CartItem(product, 1, selectedSize);
     shoppingCartList.push(newItem);
   }
 
   createCartHtml();
 };
+
 
 function removeFromCart(product: Product) {
   shoppingCartList = shoppingCartList.filter(cartItem => cartItem.product.id !== product.id);
@@ -59,7 +62,7 @@ export const createCartHtml = () => {
 
     shoppingCartList.forEach(cartItem => {
       const li = document.createElement('li');
-      const itemPrice = cartItem.product.sizes[0].price;
+      const itemPrice = cartItem.selectedSize.price;
       const totalPrice = itemPrice * cartItem.quantity;
 
       const productContainer = document.createElement('div');
@@ -76,7 +79,7 @@ export const createCartHtml = () => {
       productContainer.appendChild(title);
 
       const size = document.createElement('span');
-      size.textContent = `Size: ${cartItem.product.sizes[0].size}`;
+      size.textContent = `Size: ${cartItem.selectedSize.size}`;
       productContainer.appendChild(size);
 
       const plusButton = document.createElement('button');

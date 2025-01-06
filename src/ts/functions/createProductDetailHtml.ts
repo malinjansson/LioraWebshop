@@ -120,8 +120,14 @@ addToBagBtn.innerHTML = "Add to Bag";
 addToBagContainer.appendChild(addToBagBtn);
  
 addToBagContainer.addEventListener("click", () => {
-  addToCart(product);
+  const selectedSizeText = productSizeBtn.innerHTML;
+  const selectedSize = product.sizes.find((size) => size.size === selectedSizeText);
+  
+  if (selectedSize) {
+    addToCart(product, selectedSize);
+  } 
 });
+
  
 const headingDescription = document.createElement ("h4");
 headingDescription.classList.add("product-description-heading")
