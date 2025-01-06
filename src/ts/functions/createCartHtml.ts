@@ -1,6 +1,7 @@
 import { CartItem, Product, SizeOption } from "../../models/Product";
+import { getFromLs, saveToLs } from "./localStorage";
 
-let shoppingCartList: CartItem[] = [];
+export let shoppingCartList: CartItem[];
 
 export const addToCart = (product: Product, selectedSize: SizeOption) => {
   const item = shoppingCartList.find(
@@ -14,6 +15,7 @@ export const addToCart = (product: Product, selectedSize: SizeOption) => {
     shoppingCartList.push(newItem);
   }
 
+  saveToLs(shoppingCartList); 
   createCartHtml();
 };
 
@@ -23,6 +25,7 @@ function removeFromCart(product: Product, selectedSize: SizeOption) {
   );
   
   shoppingCartList.splice(itemIndex, 1);
+  saveToLs(shoppingCartList); 
   createCartHtml();
 }
 
@@ -35,6 +38,7 @@ export const updateProductQuantity = (product: Product, selectedSize: SizeOption
     if (item.quantity <= 0) {
       removeFromCart(product, selectedSize);
     } else {
+      saveToLs(shoppingCartList);
       createCartHtml();
     }
   }
@@ -45,6 +49,7 @@ export const createCartHtml = () => {
   const cartTotal = document.getElementById('cart-total');
   const shoppingBagCount = document.getElementById('shopping-bag-count');
   const emptyCartMessage = document.getElementById('empty-cart-message');
+  const shoppingBagCountNav = document.getElementById('nav-shopping-bag-count');
 
   if (cartItems) {
     cartItems.innerHTML = '';
@@ -132,7 +137,13 @@ export const createCartHtml = () => {
     cartTotal.innerHTML = `$${total.toFixed(2)}`;
   }
 
-  if (shoppingBagCount) {
-    shoppingBagCount.innerHTML = `Shopping bag (${itemCount})`;
+  if (shoppingBagCount && shoppingBagCountNav) {
+    shoppingBagCount.textContent = `Shopping bag (${itemCount})`; 
+    shoppingBagCountNav.textContent = `${itemCount}`; 
   }
 };
+
+window.addEventListener('DOMContentLoaded', () => {
+  shoppingCartList = getFromLs();
+  createCartHtml();
+});
