@@ -1,13 +1,47 @@
 import { Product } from "../../models/Product";
 import { addToCart } from "./createCartHtml";
 
+
 export const ProductDetails = (product: Product) => {
-  const productPageListContainer: HTMLElement | null = document.getElementById("productpage-list") as HTMLDivElement;
+
+
   const productDetailContainer: HTMLElement | null = document.getElementById("product-detail-page") as HTMLDivElement;
+  const productPageListContainer: HTMLElement | null = document.getElementById("productpage-list") as HTMLDivElement;
   const posterHeading: HTMLElement | null = document.getElementById("product-page") as HTMLDivElement;
-  posterHeading.style.display = "none";
-  productPageListContainer.style.display = "none"; 
-  productDetailContainer.style.display = "flex"; 
+
+  const newArrivalsSection: HTMLElement | null = document.getElementById("new-arrivals-section") as HTMLDivElement;
+  const homepageProducts: HTMLElement | null = document.getElementById("homepage-products") as HTMLDivElement;
+  const headerImage = document.querySelector(".header-image") as HTMLDivElement | null;
+
+
+  if (posterHeading){
+    posterHeading.style.display = "none";
+  }
+
+  if (productPageListContainer){
+    productPageListContainer.style.display = "none"; 
+  }
+
+  if (productDetailContainer){
+    productDetailContainer.style.display = "flex"; 
+  }
+
+  if (newArrivalsSection){
+    newArrivalsSection.style.display = "none";
+  }
+
+  if (homepageProducts){
+    homepageProducts.style.display = "none"; 
+  }
+
+  if (headerImage)
+  {
+    headerImage.style.display = "none"; 
+  }
+
+  if (productDetailContainer){
+    productDetailContainer.style.display = "flex"; 
+  }
 
 const productImageContainer = document.createElement ("section");
 productImageContainer.classList.add("product-image-container");
