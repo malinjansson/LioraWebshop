@@ -1,10 +1,6 @@
 import { Product } from "../../models/Product";
 import { addToCart } from "./createCartHtml";
 
-
-
-
-
 export const ProductDetails = (product: Product) => {
   const productPageListContainer: HTMLElement | null = document.getElementById("productpage-list") as HTMLDivElement;
   const productDetailContainer: HTMLElement | null = document.getElementById("product-detail-page") as HTMLDivElement;
