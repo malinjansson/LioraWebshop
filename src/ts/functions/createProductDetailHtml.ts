@@ -128,7 +128,6 @@ addToBagContainer.addEventListener("click", () => {
   } 
 });
 
- 
 const headingDescription = document.createElement ("h4");
 headingDescription.classList.add("product-description-heading")
 headingDescription.innerHTML = "Description";
