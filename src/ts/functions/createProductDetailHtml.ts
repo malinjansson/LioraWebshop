@@ -9,7 +9,7 @@ export const ProductDetails = (product: Product) => {
   const productPageListContainer: HTMLElement | null = document.getElementById("productpage-list") as HTMLDivElement;
   const posterHeading: HTMLElement | null = document.getElementById("product-page") as HTMLDivElement;
  
-  const newArrivalsSection: HTMLElement | null = document.getElementById("new-arrivals-section") as HTMLDivElement;
+  const newArrivalsSection: HTMLElement | null = document.getElementById("new-arrivals") as HTMLDivElement;
   const homepageProducts: HTMLElement | null = document.getElementById("homepage-products") as HTMLDivElement;
   const headerImage = document.querySelector(".header-image") as HTMLDivElement | null;
  
