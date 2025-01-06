@@ -1,5 +1,5 @@
 import { homePageList } from '../../data/homePageList';
-import { addToCart } from './addToCart';
+import { addToCart } from './createCartHtml';
 
 let homepageProducts = document.getElementById("homepage-products");
 
@@ -52,4 +52,4 @@ export const createHomePageList = () => {
   }
 };
 
-
+ 

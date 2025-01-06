@@ -1,5 +1,8 @@
 import { Product } from "../../models/Product";
-import { addToCart } from "./addToCart";
+import { addToCart } from "./createCartHtml";
+
+
+
 
 
 export const ProductDetails = (product: Product) => {
