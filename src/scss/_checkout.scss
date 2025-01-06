@@ -70,7 +70,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 30px;
+  padding: 40px;
   border-radius: 8px;
   width: 80%;
   margin: auto;
@@ -129,12 +129,15 @@
     height: 54vh;
 
     h2, p {
-      font-size: 24px;
+      font-size: 26px;
     }
+
+    
 
     button {
       width: 40%;
       padding: 15px 0;
+      font-size: 18px;
     }
   }
 }
