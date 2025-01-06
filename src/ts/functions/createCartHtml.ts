@@ -19,7 +19,7 @@ export const addToCart = (product: Product, selectedSize: SizeOption) => {
   createCartHtml();
 };
 
-function removeFromCart(product: Product, selectedSize: SizeOption) {
+export const removeFromCart = (product: Product, selectedSize: SizeOption) => {
   const itemIndex = shoppingCartList.findIndex(cartItem => 
     cartItem.product.id === product.id && cartItem.selectedSize.size === selectedSize.size
   );
