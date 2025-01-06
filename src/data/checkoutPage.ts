@@ -34,6 +34,13 @@ function restoreProgress() {
     });
 }
 
+
+if (checkoutForm) {
+    checkoutForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+    });
+}
+
 checkoutForm.addEventListener("input", saveProgress);
 
 // Validate Inputs

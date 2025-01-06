@@ -45,6 +45,26 @@
         }
       }
 
+      label {
+        font-family: v.$secondary-font-family;
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd; 
+        border-radius: 4px;
+        margin: 10px 0;
+
+        &:focus {
+          outline: none;
+          border-color: v.$primary-color;
+        }
+      }
+
       button {
         background-color: v.$primary-color;
         color: #fff;
@@ -120,6 +140,11 @@
       input,
       button {
         font-size: 18px;
+      }
+
+      select {
+        font-size: 18px;
+        padding: 12px;
       }
     }
   }
