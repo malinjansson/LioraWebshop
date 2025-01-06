@@ -103,20 +103,9 @@ productSizeBtn.addEventListener("click", () => {
   productSizeList.classList.toggle("visible");
 })
  
-const productStatus: HTMLElement | null = document.getElementById("product-status") as HTMLDivElement;
-if (product.inStock) {
-  productStatus.innerHTML = "In stock";
-  productStatus.classList.add("product-in-stock");
-}
-else {
-  productStatus.innerHTML = "Out of stock";
-  productStatus.classList.add("product-out-of-stock");
-};
- 
 const addToBagContainer = document.createElement("section");
 addToBagContainer.classList.add ("add-to-bag-container");
 const addToBagBtn: HTMLElement | null = document.getElementById("add-to-bag") as HTMLButtonElement;
-addToBagBtn.innerHTML = "Add to Bag";
 addToBagContainer.appendChild(addToBagBtn);
  
 addToBagContainer.addEventListener("click", () => {
@@ -127,6 +116,18 @@ addToBagContainer.addEventListener("click", () => {
     addToCart(product, selectedSize);
   } 
 });
+
+const productStatus: HTMLElement | null = document.getElementById("product-status") as HTMLDivElement;
+if (product.inStock) {
+  productStatus.innerHTML = "In stock";
+  productStatus.classList.add("product-in-stock");
+  addToBagBtn.innerHTML= "Add to bag"
+}
+else {
+  productStatus.innerHTML = "Out of stock";
+  productStatus.classList.add("product-out-of-stock");
+  addToBagBtn.innerHTML= "Notify me"
+};
 
 const headingDescription = document.createElement ("h4");
 headingDescription.classList.add("product-description-heading")
