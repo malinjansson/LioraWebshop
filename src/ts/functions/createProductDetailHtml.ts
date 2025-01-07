@@ -1,5 +1,6 @@
 import { Product } from "../../models/Product";
 import { addToCart } from "./createCartHtml";
+import { createNotifyModalHtml } from "./createNotifyMeHtml";
  
  
 export const ProductDetails = (product: Product) => {
@@ -120,6 +121,10 @@ addToBagContainer.addEventListener("click", () => {
   if (selectedSize) {
     addToCart(product, selectedSize);
   } 
+});
+
+notifyMeContainer.addEventListener("click", () => {
+    createNotifyModalHtml();
 });
 
 const productStatus: HTMLElement | null = document.getElementById("product-status") as HTMLDivElement;
