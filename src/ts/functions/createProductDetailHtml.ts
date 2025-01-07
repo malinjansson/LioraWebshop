@@ -105,8 +105,13 @@ productSizeBtn.addEventListener("click", () => {
  
 const addToBagContainer = document.createElement("section");
 addToBagContainer.classList.add ("add-to-bag-container");
-const addToBagBtn: HTMLElement | null = document.getElementById("add-to-bag") as HTMLButtonElement;
-addToBagContainer.appendChild(addToBagBtn);
+const addToBagBtn = document.createElement("button");
+addToBagBtn.classList.add("add-to-bag");
+
+const notifyMeContainer = document.createElement("section");
+notifyMeContainer.classList.add("notify-me-container");
+const notifyMeBtn = document.createElement("button"); 
+notifyMeBtn.classList.add("notify-me");
  
 addToBagContainer.addEventListener("click", () => {
   const selectedSizeText = productSizeBtn.innerHTML;
@@ -121,12 +126,16 @@ const productStatus: HTMLElement | null = document.getElementById("product-statu
 if (product.inStock) {
   productStatus.innerHTML = "In stock";
   productStatus.classList.add("product-in-stock");
-  addToBagBtn.innerHTML= "Add to bag"
+  addToBagBtn.innerHTML= "Add to bag";
+  addToBagContainer.appendChild(addToBagBtn);
+  notifyMeContainer.style.display = "none";
 }
 else {
   productStatus.innerHTML = "Out of stock";
   productStatus.classList.add("product-out-of-stock");
-  addToBagBtn.innerHTML= "Notify me"
+  notifyMeBtn.innerHTML= "Notify me"
+  notifyMeContainer.appendChild(notifyMeBtn);
+  addToBagContainer.style.display = "none";
 };
 
 const headingDescription = document.createElement ("h4");
@@ -136,6 +145,7 @@ headingDescription.innerHTML = "Description";
 const productDescription = document.createElement ("p");
 productDescription.innerHTML = product.description;
 productDescription.classList.add("product-description");
+
  
 productSizeContainer.appendChild(productSizeBtn);
 productSizeContainer.appendChild(productSizeList);
@@ -146,6 +156,7 @@ infoContainer.appendChild(selectSize);
 infoContainer.appendChild(productSizeContainer);
 infoContainer.appendChild(productStatus);
 infoContainer.appendChild(addToBagContainer);
+infoContainer.appendChild(notifyMeContainer);
 infoContainer.appendChild(headingDescription);
 infoContainer.appendChild(productDescription);
  

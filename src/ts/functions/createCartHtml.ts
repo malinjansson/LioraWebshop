@@ -5,7 +5,9 @@ export let shoppingCartList: CartItem[];
 
 export const addToCart = (product: Product, selectedSize: SizeOption) => {
   const item = shoppingCartList.find(
-    (cartItem) => cartItem.product.id === product.id && cartItem.selectedSize.size === selectedSize.size
+    (cartItem) =>
+      cartItem.product.id === product.id &&
+      cartItem.selectedSize.size === selectedSize.size
   );
 
   if (item) {
@@ -15,7 +17,7 @@ export const addToCart = (product: Product, selectedSize: SizeOption) => {
     shoppingCartList.push(newItem);
   }
 
-  saveToLs(shoppingCartList); 
+  saveToLs(shoppingCartList);
   createCartHtml();
 };
 
@@ -23,14 +25,22 @@ export const removeFromCart = (product: Product, selectedSize: SizeOption) => {
   const itemIndex = shoppingCartList.findIndex(cartItem => 
     cartItem.product.id === product.id && cartItem.selectedSize.size === selectedSize.size
   );
-  
+
   shoppingCartList.splice(itemIndex, 1);
-  saveToLs(shoppingCartList); 
+  saveToLs(shoppingCartList);
   createCartHtml();
 }
 
-export const updateProductQuantity = (product: Product, selectedSize: SizeOption, quantityChange: number) => {
-  const item = shoppingCartList.find(cartItem => cartItem.product.id === product.id && cartItem.selectedSize.size === selectedSize.size);
+export const updateProductQuantity = (
+  product: Product,
+  selectedSize: SizeOption,
+  quantityChange: number
+) => {
+  const item = shoppingCartList.find(
+    (cartItem) =>
+      cartItem.product.id === product.id &&
+      cartItem.selectedSize.size === selectedSize.size
+  );
 
   if (item) {
     item.quantity += quantityChange;
@@ -45,105 +55,104 @@ export const updateProductQuantity = (product: Product, selectedSize: SizeOption
 };
 
 export const createCartHtml = () => {
-  const cartItems = document.getElementById('cart-items');
-  const cartTotal = document.getElementById('cart-total');
-  const shoppingBagCount = document.getElementById('shopping-bag-count');
-  const emptyCartMessage = document.getElementById('empty-cart-message');
-  const shoppingBagCountNav = document.getElementById('nav-shopping-bag-count');
-
-  if (cartItems) {
-    cartItems.innerHTML = '';
-  }
+  const shoppingBagCount = document.getElementById("shopping-bag-count");
+  const cartProducts = document.getElementById("cart-products");
+  const shoppingBagCountNav = document.getElementById("nav-shopping-bag-count");
+  const cartTotal = document.getElementById("cart-totalprice");
+  const cartSubtotal : HTMLElement | null = document.getElementById("cart-subtotal") as HTMLSpanElement;
 
   let total = 0;
   let itemCount = 0;
 
+  // Hantera tom korg
   if (shoppingCartList.length === 0) {
-    if (emptyCartMessage) {
-      emptyCartMessage.style.display = 'block';
-    }
-  } else {
-    if (emptyCartMessage) {
-      emptyCartMessage.style.display = 'none';
-    }
-
-    for (let i = 0; i < shoppingCartList.length; i++){
-      const cartItem = shoppingCartList[i];
-
-      const li = document.createElement('li');
-      const itemPrice = cartItem.selectedSize.price;
-      const totalPrice = itemPrice * cartItem.quantity;
-
-      const shoppingBagContainer = document.createElement('div');
-      shoppingBagContainer.classList.add('cart-item-info');
-
-      const img = document.createElement('img');
-      img.src = cartItem.product.imageUrl;
-      img.alt = cartItem.product.title;
-      img.classList.add('cart-item-image');
-
-      const title = document.createElement('span');
-      title.innerHTML = cartItem.product.title;
-
-      const size = document.createElement('span');
-      size.innerHTML = `Size: ${cartItem.selectedSize.size}`;
-
-      const plusBtn = document.createElement('button');
-      plusBtn.innerHTML = '+';
-      plusBtn.addEventListener("click", () => {
-        updateProductQuantity(cartItem.product, cartItem.selectedSize, 1);
-      });
-
-      const minusBtn = document.createElement('button');
-      minusBtn.innerHTML = '-';
-      minusBtn.addEventListener("click", () => {
-        updateProductQuantity(cartItem.product, cartItem.selectedSize, -1);
-      });
-
-      const quantityDisplay = document.createElement('span');
-      quantityDisplay.innerHTML = `${cartItem.quantity}`;
-      quantityDisplay.classList.add('cart-item-quantity');
-
-      const productTotalPrice = document.createElement('span');
-      productTotalPrice.innerHTML = `$${(itemPrice * cartItem.quantity).toFixed(2)}`;
-
-      const removeItemBtn = document.createElement('button');
-      removeItemBtn.innerHTML = '🗑️';
-      removeItemBtn.addEventListener("click", () => {
-        
-        removeFromCart(cartItem.product, cartItem.selectedSize);
-
-      });
-
-      shoppingBagContainer.appendChild(img);
-      shoppingBagContainer.appendChild(title);
-      shoppingBagContainer.appendChild(size);
-
-      shoppingBagContainer.appendChild(minusBtn);
-      shoppingBagContainer.appendChild(quantityDisplay);
-      shoppingBagContainer.appendChild(plusBtn);
-      shoppingBagContainer.appendChild(productTotalPrice);
-      shoppingBagContainer.appendChild(removeItemBtn);
-
-      li.appendChild(shoppingBagContainer);
-      cartItems?.appendChild(li);
-
-      total += totalPrice;
-      itemCount += cartItem.quantity;
-    };
+    if (cartProducts) cartProducts.innerHTML = "Shopping bag is empty";
+    if (shoppingBagCount) shoppingBagCount.innerHTML = "";
+    if (shoppingBagCountNav) shoppingBagCountNav.innerHTML = "";
+    if (cartTotal) cartTotal.innerHTML = "";
+    return;
   }
 
-  if (cartTotal) {
-    cartTotal.innerHTML = `$${total.toFixed(2)}`;
+  // Rensa tidigare innehåll
+  if (cartProducts) cartProducts.innerHTML = "";
+
+  // Loop genom varor i korgen
+  for (let i = 0; i < shoppingCartList.length; i++) {
+    const cartItem = shoppingCartList[i];
+    const itemPrice = cartItem.selectedSize.price;
+    const totalPrice = itemPrice * cartItem.quantity;
+
+    // Bild
+    const cartProductContainer = document.createElement("section");
+    cartProductContainer.classList.add("cart-product-container")
+    const imgContainer = document.createElement("div");
+    imgContainer.classList.add("cart-item-image-container");
+    const img = document.createElement("img");
+    img.src = cartItem.product.imageUrl;
+    img.alt = cartItem.product.title;
+    img.classList.add("cart-item-image");
+    imgContainer.appendChild(img);
+    cartProductContainer?.appendChild(imgContainer);
+
+    // Info
+    const infoContainer = document.createElement("div");
+    infoContainer.classList.add("cart-item-info-container");
+    const title = document.createElement("p");
+    title.innerHTML = cartItem.product.title;
+    const size = document.createElement("p");
+    size.innerHTML = `Size: ${cartItem.selectedSize.size}`;
+    const price = document.createElement("p");
+    price.innerHTML = `$${totalPrice.toFixed(2)}`;
+    infoContainer.appendChild(title);
+    infoContainer.appendChild(size);
+    infoContainer.appendChild(price);
+    cartProductContainer?.appendChild(infoContainer);
+    cartProducts?.appendChild(cartProductContainer)
+
+    // Knappar
+    const actionContainer = document.createElement("div");
+    actionContainer.classList.add("cart-action-info-container");
+    const plusBtn = document.createElement("button");
+    plusBtn.innerHTML = "+";
+    plusBtn.addEventListener("click", () => {
+      updateProductQuantity(cartItem.product, cartItem.selectedSize, 1);
+    });
+
+    const minusBtn = document.createElement("button");
+    minusBtn.innerHTML = "-";
+    minusBtn.addEventListener("click", () => {
+      updateProductQuantity(cartItem.product, cartItem.selectedSize, -1);
+    });
+
+    const removeBtn = document.createElement("button");
+    removeBtn.innerHTML = "🗑️";
+    removeBtn.addEventListener("click", () => {
+      removeFromCart(cartItem.product, cartItem.selectedSize);
+    });
+
+
+    cartSubtotal.innerHTML= "Subtotal"
+    const quantity = document.createElement("span");
+    quantity.innerHTML = cartItem.quantity.toString();
+
+    actionContainer?.appendChild(minusBtn);
+    actionContainer?.appendChild(quantity);
+    actionContainer?.appendChild(plusBtn);
+    actionContainer?.appendChild(removeBtn);
+    infoContainer?.appendChild(actionContainer);
+
+    total += totalPrice;
+    itemCount += cartItem.quantity;
   }
 
-  if (shoppingBagCount && shoppingBagCountNav) {
-    shoppingBagCount.textContent = `Shopping bag (${itemCount})`; 
-    shoppingBagCountNav.textContent = `${itemCount}`; 
-  }
+  // Uppdatera totals
+  if (cartTotal) cartTotal.innerHTML = `$${total.toFixed(2)}`;
+  if (shoppingBagCount) shoppingBagCount.innerHTML = `Shopping bag (${itemCount})`;
+  if (shoppingBagCountNav) shoppingBagCountNav.innerHTML = `${itemCount}`;
 };
 
-window.addEventListener('DOMContentLoaded', () => {
+
+window.addEventListener("DOMContentLoaded", () => {
   shoppingCartList = getFromLs();
   createCartHtml();
 });
