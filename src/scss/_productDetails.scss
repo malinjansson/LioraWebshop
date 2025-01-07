@@ -195,11 +195,11 @@
       }
    }
 
-    .add-to-bag-container {
+    .add-to-bag-container, .notify-me-container {
         display: flex;
         justify-content: center;
         margin-top: 20px;
-        button {
+        .add-to-bag, .notify-me {
             width: 100%;
             font-family: v.$primary-font-family;
             font-size: 14px;
