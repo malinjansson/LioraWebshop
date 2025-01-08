@@ -12,8 +12,7 @@
         z-index: 1000;
         top: 0;
         left: 0;
-        background: #00000080; 
-        backdrop-filter: blur(3px);
+        background-color:rgba(210, 203, 199, 0.5);
     }
 
     .notify-container {
@@ -32,6 +31,8 @@
         margin: auto;
         padding: 20px;
         border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     .close-btn-container {
