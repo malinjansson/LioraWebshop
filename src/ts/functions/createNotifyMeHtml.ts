@@ -22,10 +22,10 @@ export const createNotifyModalHtml = () => {
    modalHeading.classList.add("modal-heading")
    modalHeading.innerHTML = "Notify me when the product is back in stock";
 
-   const notifyEmailInput = document.createElement ("input");
-   notifyEmailInput.classList.add ("modal-email");
-   notifyEmailInput.placeholder = "Your email";
-   notifyEmailInput.required;
+   const notifyEmail = document.createElement ("input");
+   notifyEmail.classList.add ("modal-email");
+   notifyEmail.placeholder = "Your email";
+   notifyEmail.required = true; 
 
    const notifyMeBtn = document.createElement ("button");
    notifyMeBtn.innerHTML = "Notify me";
@@ -35,8 +35,8 @@ export const createNotifyModalHtml = () => {
 
    notifyContent.appendChild(closeBtnContainer);
    notifyContent.appendChild(modalHeading);
-   notifyContent.appendChild(notifyEmailInput);
-   notifyContent.appendChild(notifyMeBtn)
+   notifyContent.appendChild(notifyEmail);
+   notifyContent.appendChild(notifyMeBtn);
 
    notifyContainer.appendChild(notifyContent);
 
@@ -51,17 +51,24 @@ export const createNotifyModalHtml = () => {
    notifyMeBtn.addEventListener("click", (e) => {
     e.preventDefault(); 
 
-    notifyContent.innerHTML = "";
+    const emailValue = notifyEmail.value;
 
-    const notifyMessage = document.createElement("h4");
-    notifyMessage.innerHTML = "We'll notify you when the product is back in stock"
-    notifyMessage.classList.add("notify-message");
+    if (emailValue === "") {
+      notifyEmail.classList.add("notify-error-message");
+      notifyEmail.placeholder = "Please enter your email*";
+    } else {
+      notifyContent.innerHTML = "";
 
-    notifyContent.appendChild(closeBtnContainer);
-    notifyContent.appendChild(notifyMessage);
-
-    notifyContainer.appendChild(notifyContent);
-
-    notifyBody.appendChild(notifyContainer);
+      const notifyMessage = document.createElement("h4");
+      notifyMessage.innerHTML = "We'll notify you when the product is back in stock"
+      notifyMessage.classList.add("notify-message");
+  
+      notifyContent.appendChild(closeBtnContainer);
+      notifyContent.appendChild(notifyMessage);
+  
+      notifyContainer.appendChild(notifyContent);
+  
+      notifyBody.appendChild(notifyContainer);
+    }
    });
 }

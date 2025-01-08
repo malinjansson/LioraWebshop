@@ -74,6 +74,10 @@
         cursor: pointer;
     }
 
+    .notify-error-message::placeholder {
+        color: #f21414;
+    }
+
     .notify-message {
         width: 80%;
         font-family: v.$primary-font-family;
