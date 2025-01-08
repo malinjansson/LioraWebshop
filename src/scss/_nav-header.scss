@@ -147,11 +147,16 @@ header {
         }
 
         .cart-icon {
-            font-size: 20px;
+            font-size: 25px;
             color: v.$primary-color;
-            position: absolute;
-            right: 20px;
-            z-index: 1001;
+            position: relative;
+            margin-right: 5px;
+            .nav-shopping-bag-count{
+                position: absolute;
+                bottom:20px;
+                font-size: 14px;
+                font-weight: 800;
+            }
 
             a {
                 text-decoration: none;
@@ -184,21 +189,8 @@ header {
                 margin: 0;
                 align-items: center;
             }
- 
-            .logo {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .cart-icon {
-                position: static;
-                margin-left: auto;
-            }
         }
     }
 }
 
-main {
-    padding-top: 60px; /*fixed nav */
-}
+

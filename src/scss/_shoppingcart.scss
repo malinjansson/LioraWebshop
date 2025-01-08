@@ -61,10 +61,9 @@
       }
 
       .cart-item-image-container {
-        background-color: aqua;
         height: 100px;
         width: 100px;
-       
+
         .cart-item-image {
           width: 100%;
           height: 100%;
@@ -77,14 +76,13 @@
         flex-direction: column;
         gap: 8px;
         width: 100%;
-       letter-spacing: 0.4px;
-       font-size: v.$body-text-font-size;
-       h4{
-        font-size: v.$h4-font-size;
+        letter-spacing: 0.4px;
+        font-size: v.$body-text-font-size;
+        h4 {
+          font-size: v.$h4-font-size;
           @include m.forSize(desktop) {
-      
-    }
-       }
+          }
+        }
       }
 
       .cart-action-info-container {
@@ -100,9 +98,6 @@
           margin-left: 25px;
         }
 
-        .price-container {
-         
-        }
         display: flex;
         gap: 10px;
         display: flex;

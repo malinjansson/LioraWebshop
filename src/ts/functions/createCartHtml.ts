@@ -64,52 +64,59 @@ export const createCartHtml = () => {
   const cartSubtotal: HTMLElement | null = document.getElementById(
     "cart-subtotal"
   ) as HTMLSpanElement;
-  const cartCloseIcon: HTMLElement | null = document.getElementById("cart-close-icon")as HTMLDivElement;
-  const cartIcon = document.getElementById("cart-icon")
-  const cartContainerTransparent = document.querySelector(".cart-container-transparent");
-  const cartCheckout : HTMLElement | null = document.getElementById("cart-checkout") as HTMLDivElement;
+  const cartCloseIcon: HTMLElement | null = document.getElementById(
+    "cart-close-icon"
+  ) as HTMLDivElement;
+  const cartIcon = document.getElementById("cart-icon");
+  const cartContainerTransparent = document.querySelector(
+    ".cart-container-transparent"
+  );
+  const cartCheckout: HTMLElement | null = document.getElementById(
+    "cart-checkout"
+  ) as HTMLDivElement;
   cartCheckout.innerHTML = "checkout";
 
+  cartCloseIcon?.addEventListener("click", () => {
+    cartContainerTransparent?.classList.remove("visible");
+  });
 
-cartCloseIcon?.addEventListener("click", () => {
-  cartContainerTransparent?.classList.remove("visible"); 
-});
-
-
-cartIcon?.addEventListener("click", () => {
-  cartContainerTransparent?.classList.toggle("visible");
-});
+  cartIcon?.addEventListener("click", () => {
+    cartContainerTransparent?.classList.toggle("visible");
+  });
 
   let total = 0;
   let itemCount = 0;
 
-  // Hantera tom korg
   if (shoppingCartList.length === 0) {
     if (cartProducts) {
-      cartProducts.innerHTML= ""
+      cartProducts.innerHTML = "";
       const cartEmptyMessage = document.createElement("h3");
       cartEmptyMessage.innerHTML = "Your bag is empty";
       cartProducts.appendChild(cartEmptyMessage);
-      cartEmptyMessage.classList.add("cart-empty-message")
+      cartEmptyMessage.classList.add("cart-empty-message");
     }
     if (shoppingBagCount) shoppingBagCount.innerHTML = "";
     if (shoppingBagCountNav) shoppingBagCountNav.innerHTML = "";
     if (cartTotal) cartTotal.innerHTML = "";
-    if(cartSubtotal) cartSubtotal.innerHTML = "";
-    if (cartCheckout) cartCheckout.innerHTML = "continue shopping"
+    if (cartSubtotal) cartSubtotal.innerHTML = "";
+
+    if (cartCheckout) {
+      cartCheckout.innerHTML = "Continue shopping";
+      cartCheckout.setAttribute("href", "/pages/productpage.html");
+    }
     return;
+  } else {
+    if (cartCheckout) {
+      cartCheckout.setAttribute("href", "/pages/checkout.html");
+    }
   }
 
-  // Rensa tidigare innehåll
   if (cartProducts) cartProducts.innerHTML = "";
 
-  // Loop genom varor i korgen
   for (let i = 0; i < shoppingCartList.length; i++) {
     const cartItem = shoppingCartList[i];
     const itemPrice = cartItem.selectedSize.price;
     const totalPrice = itemPrice * cartItem.quantity;
-
-    // Bild
     const cartProductContainer = document.createElement("section");
     cartProductContainer.classList.add("cart-product-container");
     const imgContainer = document.createElement("div");
@@ -121,30 +128,27 @@ cartIcon?.addEventListener("click", () => {
     imgContainer.appendChild(img);
     cartProductContainer?.appendChild(imgContainer);
 
-    // Info
     const infoContainer = document.createElement("div");
     infoContainer.classList.add("cart-item-info-container");
     const title = document.createElement("h4");
     title.innerHTML = cartItem.product.title;
     const size = document.createElement("p");
     size.innerHTML = `Size: ${cartItem.selectedSize.size}`;
-    const priceContainer = document.createElement("div")
+    const priceContainer = document.createElement("div");
     priceContainer.classList.add("price-container");
     const price = document.createElement("p");
     price.innerHTML = `$${totalPrice.toFixed(2)}`;
     infoContainer.appendChild(title);
     infoContainer.appendChild(size);
-    priceContainer.appendChild(price)
+    priceContainer.appendChild(price);
     cartProductContainer?.appendChild(infoContainer);
     cartProducts?.appendChild(cartProductContainer);
 
-    
-    // Knappar
     const actionContainer = document.createElement("div");
     actionContainer.classList.add("cart-action-info-container");
     const iconContainer = document.createElement("div");
     actionContainer.classList.add("cart-action-info-container");
-    iconContainer.classList.add("icon-container")
+    iconContainer.classList.add("icon-container");
     const plusBtn = document.createElement("div");
     plusBtn.innerHTML = `<i class="fa-solid fa-plus"></i>`;
     plusBtn.addEventListener("click", () => {
@@ -158,7 +162,7 @@ cartIcon?.addEventListener("click", () => {
     });
 
     const removeBtn = document.createElement("div");
-    removeBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`; // Lägg till Font Awesome-ikon
+    removeBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
     removeBtn.addEventListener("click", () => {
       removeFromCart(cartItem.product, cartItem.selectedSize);
     });
@@ -166,7 +170,6 @@ cartIcon?.addEventListener("click", () => {
     cartSubtotal.innerHTML = "Subtotal";
     const quantity = document.createElement("span");
     quantity.innerHTML = cartItem.quantity.toString();
-
 
     actionContainer.appendChild(priceContainer);
     iconContainer?.appendChild(minusBtn);
@@ -180,7 +183,6 @@ cartIcon?.addEventListener("click", () => {
     itemCount += cartItem.quantity;
   }
 
-  // Uppdatera totals
   if (cartTotal) cartTotal.innerHTML = `$${total.toFixed(2)}`;
   if (shoppingBagCount)
     shoppingBagCount.innerHTML = `Shopping bag (${itemCount})`;
