@@ -8,19 +8,22 @@
     <title>Liora</title>
   </head>
   <body>
-    <section id="cart-container">
-      <section class="cart-header" id="cart-header">
-        <span id="shopping-bag-count"></span>
-        <i class="fa-solid fa-xmark"></i>
+    <section class="cart-container-transparent">
+      <section id="cart-container">
+        <section class="cart-header" id="cart-header">
+          <span id="shopping-bag-count"></span>
+          <i id="cart-close-icon" class="fa-solid fa-xmark"></i>
+        </section>
+        <section class="cart-products" id="cart-products">
+        </section>
+        <section class="cart-footer" id="cart-footer">
+          <span class="cart-subtotal" id="cart-subtotal"></span>
+          <span class="cart-totalprice" id="cart-totalprice"></span>
+        </section>
+        <section class="cart-checkout-container">
+                <a href="/pages/checkout.html" class="cart-checkout-button" id="cart-checkout"></a>
+              </section>
       </section>
-      <section class="cart-products" id="cart-products">
-        <!-- Produkter kommer att renderas här -->
-      </section>
-      <section class="cart-footer" id="cart-footer">
-        <span class="cart-subtotal" id="cart-subtotal"></span>
-        <span class="cart-totalprice" id="cart-totalprice"></span>
-      </section>
-              <a href="/pages/checkout.html" class="cart-checkout-button" id="cart-checkout">CHECKOUT</a>
     </section>
     <header>
       <nav>
@@ -44,23 +47,23 @@
         </h1>
  
  
-        <section class="cart-icon">
+        <section class="cart-icon" id="cart-icon">
           <span id="nav-shopping-bag-count"></span>
           <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
         </section>
       </nav>
     </header>
- 
-      <main>
-        <section id="product-page"><h2 class="page-heading">Posters</h2>
-        </section>
-        <section id="productpage-list"></section>
-        <section id="product-detail-page">
-          <section id="product-status"></section>
-        </section>
+    
+    <main>
+      <section id="product-page"><h2 class="page-heading">Posters</h2>
+      </section>
+      <section id="productpage-list"></section>
+      <section id="product-detail-page">
+        <section id="product-status"></section>
+      </section>
 
-        <section id="notify-me-modal"></section>
-      </main>
+      <section id="notify-me-modal"></section>
+    </main>
 
     <footer>
       <section class="info-container">
@@ -96,7 +99,7 @@
             <p>Copyright &copy; 2025, Liora</p>
           </section>
         </section>
-    </footer>
+      </footer>
     <script type="module" src="/src/ts/main.ts"></script>
   </body>
 </html>
