@@ -14,9 +14,9 @@ export const createNotifyModalHtml = () => {
    const closeBtnContainer = document.createElement("section");
    closeBtnContainer.classList.add("close-btn-container");
 
-   const modalCloseBtn = document.createElement ("i");
-   modalCloseBtn.id = "modal-close-btn";
-   modalCloseBtn.classList.add("fa-solid", "fa-xmark");
+   const modalCloseIcon = document.createElement ("i");
+   modalCloseIcon .id = "modal-close-icon";
+   modalCloseIcon .classList.add("fa-solid", "fa-xmark");
 
    const modalHeading = document.createElement("h4");
    modalHeading.classList.add("modal-heading")
@@ -31,7 +31,7 @@ export const createNotifyModalHtml = () => {
    notifyMeBtn.innerHTML = "Notify me";
    notifyMeBtn.classList.add("notifyme-btn");
 
-   closeBtnContainer.appendChild (modalCloseBtn)
+   closeBtnContainer.appendChild (modalCloseIcon);
 
    notifyContent.appendChild(closeBtnContainer);
    notifyContent.appendChild(modalHeading);
@@ -42,7 +42,7 @@ export const createNotifyModalHtml = () => {
 
    notifyBody.appendChild(notifyContainer);
 
-   modalCloseBtn.addEventListener("click", (e) => {
+   modalCloseIcon.addEventListener("click", (e) => {
       e.preventDefault();
       
       notifyBody.classList.remove("visible");
