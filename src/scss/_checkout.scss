@@ -4,13 +4,11 @@
 @use "footer";
 
 .checkout {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
-
 
   h2 {
     display:flex;
@@ -30,6 +28,7 @@
     };
   }
 
+<<<<<<< HEAD
   
   .checkout-info {
     padding: 20px;
@@ -39,6 +38,76 @@
     margin: auto;
     margin-bottom: 20px;
   
+=======
+  .checkout-info,
+  .delivery-info {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    // width: 80%;
+    // margin: auto;
+    font-family: v.$secondary-font-family;
+
+    h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      input,
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+
+        &:focus {
+          outline: none;
+          border-color: v.$primary-color;
+        }
+      }
+
+      label.shipping-label {
+        font-size: 17px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #fff;
+        margin-top: 10px;
+      }
+
+      button {
+        background-color: v.$primary-color;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken(v.$primary-color, 10%);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .checkout-info {
+>>>>>>> feature-thankyoupage-styling
     .checkout-product {
       display: flex;
       justify-content: space-between;
@@ -87,7 +156,6 @@
       background: none;
       border: none;
       font-size: 18px;
-      
     }
 
     .checkout-total-price-container {
@@ -175,52 +243,46 @@
 }
 
 #thank-you-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
-  margin: auto;
+  margin: 100px auto;
   width: 80%;
-  height: 60vh;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 45vh;
+  text-align: center;
 
-  h2 {
-    font-size: 22px;
-    color: v.$primary-color;
-    font-family: v.$secondary-font-family;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
+  .thank-you-section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 80%;
 
-  p {
-    font-size: 18px;
-    color: v.$primary-color;
-    font-family: v.$secondary-font-family;
-    margin-bottom: 30px; 
-  }
+    h2 {
+      font-size: v.$h2-font-size-mobile;
+      font-family: v.$secondary-font-family;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
 
-  button {
-    background-color: v.$primary-color;
-    color: #fff;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 4px;
-    text-transform: uppercase;
-    cursor: pointer;
-    font-family: v.$secondary-font-family;
-    font-size: 16px; 
-    margin-top: 15px;
-    width: 90%;
-    max-width: 300px;
-    min-width: 200px; 
+    p {
+      font-size: 14px;
+      font-family: v.$secondary-font-family;
+      margin-bottom: 30px;
+    }
 
-    &:hover {
-      background-color: darken(v.$primary-color, 10%);
-      text-decoration: none;
+    button {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      width: 100%;
+      font-family: v.$primary-font-family;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      background-color: v.$primary-color;
+      color: v.$secondary-color;
+      border: none;
+      padding: 10px;
+      margin-left: 0;
+      cursor: pointer;
     }
   }
 }
@@ -249,21 +311,24 @@
     }
   }
   #thank-you-section {
-    width: 60%;
-    height: 65vh; 
+    padding-top: 150px;
 
     h2 {
-      font-size: 30px;
+      font-size: v.$h2-font-size-desktop;
     }
 
     p {
-      font-size: 20px; 
+      font-size: 20px;
     }
 
     button {
-      width: 60%; 
+      width: 60%;
       max-width: 400px;
-      min-width: 250px; 
+      min-width: 250px;
     }
+    @include m.forSize(desktop) {
+      font-size: 14px;
+      padding: 15px;
+     }
   }
 }
