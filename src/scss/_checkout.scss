@@ -4,11 +4,13 @@
 @use "footer";
 
 .checkout {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
+
 
   h2 {
     display:flex;
@@ -28,7 +30,6 @@
     };
   }
 
-<<<<<<< HEAD
   
   .checkout-info {
     padding: 20px;
@@ -38,76 +39,6 @@
     margin: auto;
     margin-bottom: 20px;
   
-=======
-  .checkout-info,
-  .delivery-info {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    // width: 80%;
-    // margin: auto;
-    font-family: v.$secondary-font-family;
-
-    h3 {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      color: #333;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-
-      input,
-      select {
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-
-        &:focus {
-          outline: none;
-          border-color: v.$primary-color;
-        }
-      }
-
-      label.shipping-label {
-        font-size: 17px;
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-
-      select {
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        background-color: #fff;
-        margin-top: 10px;
-      }
-
-      button {
-        background-color: v.$primary-color;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        text-transform: uppercase;
-        cursor: pointer;
-
-        &:hover {
-          background-color: darken(v.$primary-color, 10%);
-          text-decoration: none;
-        }
-      }
-    }
-  }
-
-  .checkout-info {
->>>>>>> feature-thankyoupage-styling
     .checkout-product {
       display: flex;
       justify-content: space-between;
@@ -156,6 +87,7 @@
       background: none;
       border: none;
       font-size: 18px;
+      
     }
 
     .checkout-total-price-container {
