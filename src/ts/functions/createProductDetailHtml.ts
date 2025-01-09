@@ -1,5 +1,6 @@
 import { Product } from "../../models/Product";
 import { addToCart } from "./createCartHtml";
+import { createNotifyModalHtml } from "./createNotifyMeHtml";
  
  
 export const ProductDetails = (product: Product) => {
@@ -12,6 +13,7 @@ export const ProductDetails = (product: Product) => {
   const newArrivalsSection: HTMLElement | null = document.getElementById("new-arrivals") as HTMLDivElement;
   const homepageProducts: HTMLElement | null = document.getElementById("homepage-products") as HTMLDivElement;
   const headerImage = document.querySelector(".header-image") as HTMLDivElement | null;
+  const cartContainerTransparent = document.querySelector(".cart-container-transparent");
  
  
   if (posterHeading){
@@ -119,7 +121,13 @@ addToBagContainer.addEventListener("click", () => {
   
   if (selectedSize) {
     addToCart(product, selectedSize);
+    cartContainerTransparent?.classList.toggle("visible");
+    
   } 
+});
+
+notifyMeContainer.addEventListener("click", () => {
+    createNotifyModalHtml();
 });
 
 const productStatus: HTMLElement | null = document.getElementById("product-status") as HTMLDivElement;
