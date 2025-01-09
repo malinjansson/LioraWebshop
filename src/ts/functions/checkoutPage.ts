@@ -84,6 +84,13 @@ export const renderCartItems = (cartItems: CartItem[]) => {
         size.textContent = `Size: ${item.selectedSize.size}`; 
         productInfo.appendChild(size);
 
+        const price = document.createElement("p");
+        price.textContent = `$${(item.selectedSize.price * item.quantity).toFixed(2)}`;
+        price.classList.add("item-price");
+        productInfo.appendChild(price);
+
+        productContainer.appendChild(productInfo);
+
         const quantityContainer = document.createElement("div");
         quantityContainer.classList.add("quantity-container");
 
@@ -110,13 +117,6 @@ export const renderCartItems = (cartItems: CartItem[]) => {
         quantityContainer.appendChild(plusButton);
         productInfo.appendChild(quantityContainer);
 
-        const price = document.createElement("p");
-        price.textContent = `$${(item.selectedSize.price * item.quantity).toFixed(2)}`;
-        price.classList.add("item-price");
-        productInfo.appendChild(price);
-
-        productContainer.appendChild(productInfo);
-
         const removeButton = document.createElement("button");
         removeButton.textContent = "x";
         removeButton.classList.add("remove-button");
@@ -130,9 +130,17 @@ export const renderCartItems = (cartItems: CartItem[]) => {
         totalPrice += item.selectedSize.price * item.quantity;
     }
 
-    const totalPriceContainer = document.createElement("p");
-    totalPriceContainer.textContent = `Total: $${totalPrice.toFixed(2)}`;
-    totalPriceContainer.classList.add("total-price");
+    const totalPriceContainer = document.createElement("section");
+    totalPriceContainer.classList.add("checkout-total-price-container");
+    const checkoutTotal = document.createElement ("p"); 
+    checkoutTotal.classList.add("checkout-total");
+    checkoutTotal.innerHTML = ("Total:");
+    const checkoutTotalPrice = document.createElement ("p");
+    checkoutTotalPrice.classList.add("total-price");
+    checkoutTotalPrice.innerHTML = `$${totalPrice.toFixed(2)}`;
+
+    totalPriceContainer.appendChild(checkoutTotal);
+    totalPriceContainer.appendChild(checkoutTotalPrice);
     cartProductsSection.appendChild(totalPriceContainer);
 };
 

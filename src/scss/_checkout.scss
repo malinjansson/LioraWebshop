@@ -9,104 +9,45 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 200px);
   margin: auto;
-  padding: 20px 0;
 
 
   h2 {
-    margin: 40px 0;
-    text-align: center;
+    display:flex;
+    justify-content: center;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
     font-family: v.$secondary-font-family;
-    font-size: 24px;
-    color: v.$primary-color;
+    font-size: v.$h2-font-size-mobile;
+    font-weight: 300;
+    letter-spacing: 1px;
+
+    @include m.forSize(desktop) {
+      margin-top: 3.5em;
+      margin-bottom: 2em;
+      font-size: v.$h2-font-size-desktop;
+    };
   }
 
   
-  .checkout-info,
-  .delivery-info {
-    background-color: #fff;
+  .checkout-info {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 80%; 
     margin: auto;
-    font-family: v.$secondary-font-family;
-
-    h3 {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      color: #333;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-
-      input,
-      select {
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-
-        &:focus {
-          outline: none;
-          border-color: v.$primary-color;
-        }
-      }
-
-      label.shipping-label {
-        font-size: 17px;
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-
-      select {
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        background-color: #fff;
-        margin-top: 10px;
-      }
-
-      button {
-        background-color: v.$primary-color;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        text-transform: uppercase;
-        cursor: pointer;
-
-        &:hover {
-          background-color: darken(v.$primary-color, 10%);
-          text-decoration: none;
-        }
-      }
-    }
-  }
-
-  .checkout-info {
+    margin-bottom: 20px;
+  
     .checkout-product {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       margin-bottom: 15px;
       padding: 10px 0;
-      border-bottom: 20px solid #ddd;
-
-      &:last-child {
-        border-bottom: none;
-      }
 
       img {
         width: 80px;
         height: auto;
-        border-radius: 4px;
         object-fit: cover;
       }
 
@@ -115,22 +56,14 @@
         margin-left: 15px;
 
         h3 {
-          font-size: 16px;
-          font-weight: bold;
-          color: #333;
+          font-family: v.$secondary-font-family;
+          font-size: v.$h3-font-size-mobile;
         }
 
         p {
-          font-size: 14px;
-          color: #666;
+          font-size: 12px;
           margin: 5px 0;
         }
-      }
-
-      .price {
-        font-size: 16px;
-        font-weight: bold;
-        color: v.$primary-color;
       }
 
       .quantity-container {
@@ -142,13 +75,11 @@
       .quantity-button {
         background: none;
         border: none;
-        font-size: 18px;
-        color: #333;
         padding: 0;
       }
 
       .quantity-display {
-        font-size: 16px;
+        font-size: 12px;
       }
     }
 
@@ -159,12 +90,86 @@
       
     }
 
-    .total {
-      font-size: 18px;
-      font-weight: bold;
-      text-align: right;
+    .checkout-total-price-container {
+      display: flex;
+      justify-content: space-between;
       margin-top: 10px;
+      font-size: 14px;
       color: v.$primary-color;
+
+      .checkout-total {
+        font-weight: bold;
+        color: v.$primary-color;
+      }
+    }
+  }
+
+  .delivery-info {
+    width: 80%; 
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: v.$primary-font-family;
+
+    h3 {
+      font-family: v.$secondary-font-family;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      input,
+      select {
+        padding: 10px;
+        font-size: 12px;
+        border: 1px solid #c4c4c4;
+        border-radius: 4px;
+
+        &:focus {
+          outline: none;
+          border-color: v.$primary-color;
+        }
+      }
+
+      label {
+        margin-top: 10px;
+        font-family: v.$primary-font-family;
+        font-size: 14px;
+      }
+
+      select {
+        padding: 10px;
+        font-size: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #fff;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        width: 100%;
+        font-family: v.$primary-font-family;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        background-color: v.$primary-color;
+        color: v.$secondary-color;
+        border: none;
+        padding: 10px;
+        margin-left: 0;
+        cursor: pointer;
+
+        @include m.forSize(desktop) {
+           font-size: 14px;
+           padding: 15px;
+          }
+      }
     }
   }
 }
