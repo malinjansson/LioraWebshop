@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderCartItems(cartItems: CartItem[]) {
     cartProductsSection.innerHTML = ""; 
+    localStorage.removeItem("thank-you-page");
 
     cartItems.forEach((item) => {
         const productContainer = document.createElement("section");
@@ -148,6 +149,7 @@ if (checkoutForm) {
             if (thankYouSection) thankYouSection.style.display = "block";
 
             localStorage.setItem("thank-you-page", "true");
+            localStorage.removeItem("cartItem");
         }
     });
 }
@@ -158,3 +160,4 @@ if (goHomeButton) {
         window.location.href = "/index.html";
     });
 }
+
