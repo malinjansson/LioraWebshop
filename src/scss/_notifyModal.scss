@@ -1,0 +1,92 @@
+@use "variables" as v; 
+@use "mixins" as m;
+
+#notify-me-modal {
+    display: none;
+
+    &.visible {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color:rgba(210, 203, 199, 0.5);
+    }
+
+    .notify-container {
+        width: 80%;
+        margin: auto;
+
+        @include m.forSize(desktop) {
+            width: 30%;
+          }
+    }
+    
+    .notify-content {
+        display: flex;
+        flex-direction: column;
+        background-color: v.$background-color;
+        margin: auto;
+        padding: 20px;
+        border-radius: 3px;
+        border: 1px solid #c4c4c4;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .close-btn-container {
+        padding: 5px 10px;
+        font-size: 20px;
+    }
+    
+    .modal-heading {
+        width: 80%;
+        font-family: v.$primary-font-family;
+        font-size: v.$h4-font-size;
+        font-weight: 600;
+        margin: auto;
+        text-align: center;
+        padding-top: 4em;
+        padding-bottom: 1em;
+    }
+    
+    .modal-email {
+        width: 75%;
+        border-radius: 0;
+        border: 0.5px solid v.$primary-color;
+        padding: 5px;
+        margin: auto;
+    }
+    
+    .notifyme-btn {
+        width: 100%;
+        font-family: v.$primary-font-family;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        background-color: v.$primary-color;
+        color: v.$secondary-color;
+        border: none;
+        padding: 10px;
+        margin-top: 5em;
+        margin-left: 0;
+        cursor: pointer;
+    }
+
+    .notify-error-message::placeholder {
+        color: #f21414;
+    }
+
+    .notify-message {
+        width: 80%;
+        font-family: v.$primary-font-family;
+        font-size: v.$h4-font-size;
+        font-weight: 600;
+        margin: auto;
+        text-align: center;
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+}
+
