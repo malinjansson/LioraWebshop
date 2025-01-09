@@ -121,6 +121,57 @@
   }
 }
 
+#thank-you-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  margin: auto;
+  width: 80%;
+  height: 60vh;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 22px;
+    color: v.$primary-color;
+    font-family: v.$secondary-font-family;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 18px;
+    color: v.$primary-color;
+    font-family: v.$secondary-font-family;
+    margin-bottom: 30px; 
+  }
+
+  button {
+    background-color: v.$primary-color;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: v.$secondary-font-family;
+    font-size: 16px; 
+    margin-top: 15px;
+    width: 90%;
+    max-width: 300px;
+    min-width: 200px; 
+
+    &:hover {
+      background-color: darken(v.$primary-color, 10%);
+      text-decoration: none;
+    }
+  }
+}
+
 @include m.forSize(desktop) {
   .checkout {
     .checkout-info,
@@ -140,6 +191,24 @@
         font-size: 18px;
         padding: 12px;
       }
+    }
+  }
+  #thank-you-section {
+    width: 60%;
+    height: 65vh; 
+
+    h2 {
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 20px; 
+    }
+
+    button {
+      width: 60%; 
+      max-width: 400px;
+      min-width: 250px; 
     }
   }
 }
