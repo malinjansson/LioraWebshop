@@ -9,13 +9,14 @@
         margin-bottom: 1em;
         text-transform: uppercase;
         font-family: v.$secondary-font-family;
-        font-size: v.$h2-font-size;
+        font-size: v.$h2-font-size-mobile;
         font-weight: 300;
         letter-spacing: 1px;
 
         @include m.forSize(desktop) {
           margin-top: 3.5em;
           margin-bottom: 2em;
+          font-size: v.$h2-font-size-desktop;
         };
     }
 
@@ -55,21 +56,21 @@
             }
 
             .product-title {
-                font-size: 12px;
+                font-size: v.$h3-font-size-mobile;
                 font-weight: 300;
                 letter-spacing: 0.5px;
                 margin-top: 5px;
                 margin-bottom: 2px;
 
                 @include m.forSize(desktop) {
-                  font-size: v.$h3-font-size;
+                  font-size: v.$h3-font-size-desktop;
                 };
             }
 
             .product-price {
-                font-size: 10px;
+                font-size: v.$body-text-font-size-mobile;
                 @include m.forSize(desktop) {
-                  font-size: 12px;
+                  font-size: v.$body-text-font-size-desktop;
                 };
                 letter-spacing: 0.5px;
                 margin-bottom: 20px;

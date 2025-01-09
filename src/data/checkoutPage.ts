@@ -12,10 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-function renderCartItems(cartItems: CartItem[]) {
+export const renderCartItems = (cartItems: CartItem[]) => {
     cartProductsSection.innerHTML = ""; 
 
-    cartItems.forEach((item) => {
+    
+    for ( let i = 0; i < cartItems.length; i++) {
+        const item = cartItems[i];
         const productContainer = document.createElement("section");
         productContainer.classList.add("checkout-product");
 
@@ -48,7 +50,7 @@ function renderCartItems(cartItems: CartItem[]) {
 
         productContainer.appendChild(productInfo);
         cartProductsSection.appendChild(productContainer);
-    });
+    };
 
     const totalPrice = cartItems.reduce(
         (total, item) => total + item.selectedSize.price * item.quantity,
@@ -79,21 +81,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-function saveProgress() {
+export const saveProgress = () => {
     const inputs = checkoutForm.querySelectorAll("input");
     inputs.forEach((input) => {
         localStorage.setItem(input.placeholder, input.value);
     });
 }
 
-function restoreProgress() {
+export const restoreProgress = () => {
     const inputs = checkoutForm.querySelectorAll("input");
-    inputs.forEach((input) => {
+
+    for (let i = 0; i < inputs.length; i++) {
+        const input = inputs[i];
         const savedValue = localStorage.getItem(input.placeholder);
         if (savedValue) {
             input.value = savedValue;
         }
-    });
+    }
 }
 
 if (checkoutForm) {
@@ -105,7 +109,7 @@ if (checkoutForm) {
 checkoutForm.addEventListener("input", saveProgress);
 
 
-function validateInput(input: HTMLInputElement): boolean {
+export const validateInput = (input: HTMLInputElement): boolean => {
     if (input.type === "text" && input.value.trim() === "") {
         alert(`${input.placeholder} is required.`);
         return false;

@@ -33,33 +33,35 @@
         object-fit: cover;
     }
 
-    .info-contatiner {
+    .info-container {
         width: 100%;
-
         @include m.forSize(desktop) {
             width: 35%;
           }
-    }
-
+  
     h3 {
+        font-family: v.$primary-font-family;
+        font-size: v.$h3-font-size-desktop;
         margin-top: 10px;
     }
 
     .product-price {
         font-family: v.$secondary-font-family;
+        font-size: v.$body-text-font-size-desktop;
         margin-top: 5px;
     }
 
     .select-size {
         font-family: v.$primary-font-family;
+        font-size: v.$h3-font-size-mobile;
         margin-top: 20px;
         margin-bottom: 10px;
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-size: 14px;
 
         @include m.forSize(desktop) {
             margin-top: 3em;
+            font-size: v.$h3-font-size-desktop;
           }
     }
 
@@ -102,11 +104,14 @@
         position: relative;
         justify-content: space-between;
         font-family: v.$primary-font-family;
-        font-size: 14px;
+        font-size: v.$h3-font-size-mobile;
         letter-spacing: 1px;
         margin-top: 5px;
         margin-bottom: 30px;
         cursor: pointer;
+        @include m.forSize(desktop) {
+            font-size: v.$h3-font-size-desktop;
+          }
 
             &:last-child {
                 margin-bottom: 5px;
@@ -201,15 +206,17 @@
         padding-top: 2em;
         padding-bottom: 0.2em;
         font-family: v.$secondary-font-family;
+        font-size: v.$h3-font-size-desktop;
         font-weight: 400;
         letter-spacing: 0.5px;
     }
 
     .product-description {
         font-family: v.$secondary-font-family;
-        font-size: 14px;
+        font-size: v.$body-text-font-size-desktop;
+    
     }
 
 
-
+}
 }

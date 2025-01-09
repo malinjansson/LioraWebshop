@@ -55,7 +55,7 @@ image.classList.add("product-image-dp");
 productImageContainer.appendChild(image);
  
 const infoContainer = document.createElement ("section");
-infoContainer.classList.add("info-contatiner")
+infoContainer.classList.add("info-container")
  
 const productTitle = document.createElement("h3");
 productTitle.innerHTML = product.title;
