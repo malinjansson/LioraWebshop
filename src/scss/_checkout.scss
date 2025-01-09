@@ -30,7 +30,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 80%; 
-    margin: auto 0 20px;
+    margin: auto;
     font-family: v.$secondary-font-family;
 
     h3 {
@@ -97,7 +97,7 @@
       align-items: center;
       margin-bottom: 15px;
       padding: 10px 0;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 20px solid #ddd;
 
       &:last-child {
         border-bottom: none;
@@ -132,6 +132,31 @@
         font-weight: bold;
         color: v.$primary-color;
       }
+
+      .quantity-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .quantity-button {
+        background: none;
+        border: none;
+        font-size: 18px;
+        color: #333;
+        padding: 0;
+      }
+
+      .quantity-display {
+        font-size: 16px;
+      }
+    }
+
+    .remove-button {
+      background: none;
+      border: none;
+      font-size: 18px;
+      
     }
 
     .total {
@@ -203,7 +228,6 @@
       width: 60%;
       margin: auto;
       margin-top: 20px;
-      height: 30vh;
     }
 
     form {
