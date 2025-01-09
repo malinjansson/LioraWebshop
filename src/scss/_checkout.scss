@@ -3,37 +3,33 @@
 @use "nav-header";
 @use "footer";
 
-
 .checkout {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 200px);
-  margin: auto;
-  padding: 20px 0;
-
+  margin-bottom: 50px;
 
   h2 {
-    margin: 40px 0;
+    margin: 20px 0;
     text-align: center;
+    font-family: v.$secondary-font-family;
+    font-size: 24px;
+    color: v.$primary-color;
   }
 
+  
+  .checkout-info,
   .delivery-info {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    text-align: center;
-    margin: 0 auto;
-
+    width: 80%; 
+    margin: auto 0 20px;
+    font-family: v.$secondary-font-family;
 
     h3 {
-      font-family: v.$secondary-font-family;
       font-size: 18px;
+      font-weight: bold;
       margin-bottom: 15px;
+      color: #333;
     }
 
     form {
@@ -41,7 +37,8 @@
       flex-direction: column;
       gap: 15px;
 
-      input {
+      input,
+      select {
         padding: 10px;
         font-size: 16px;
         border: 1px solid #ddd;
@@ -51,21 +48,6 @@
           outline: none;
           border-color: v.$primary-color;
         }
-      }
-
-      label.shipping-label {
-        font-size: 17px;
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-
-      select {
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        background-color: #fff;
-        margin-top: 10px;
       }
 
       button {
@@ -79,98 +61,154 @@
 
         &:hover {
           background-color: darken(v.$primary-color, 10%);
-          text-decoration: none; 
+          text-decoration: none;
         }
       }
     }
   }
+
+  .checkout-info {
+    .checkout-product {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      img {
+        width: 80px;
+        height: auto;
+        border-radius: 4px;
+        object-fit: cover;
+      }
+
+      .checkout-product-info {
+        flex-grow: 1;
+        margin-left: 15px;
+
+        h3 {
+          font-size: 16px;
+          font-weight: bold;
+          color: #333;
+        }
+
+        p {
+          font-size: 14px;
+          color: #666;
+          margin: 5px 0;
+        }
+      }
+
+      .price {
+        font-size: 16px;
+        font-weight: bold;
+        color: v.$primary-color;
+      }
+    }
+
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: right;
+      margin-top: 10px;
+      color: v.$primary-color;
+    }
+  }
 }
 
-
 #thank-you-section {
-
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
-  width: 80%;
+  padding: 40px;
   margin: auto;
-  height: 48vh;
+  width: 80%;
+  height: 60vh;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   h2 {
-    font-size: v.$h2-font-size;
+    font-size: 22px;
     color: v.$primary-color;
     font-family: v.$secondary-font-family;
-    margin-bottom: auto;
-
+    font-weight: bold;
+    margin-bottom: 15px;
   }
 
   p {
-    font-size: v.$h2-font-size;
+    font-size: 18px;
     color: v.$primary-color;
     font-family: v.$secondary-font-family;
-    margin-bottom: 20px;
+    margin-bottom: 30px; 
   }
 
   button {
-
-    background-color: black;
+    background-color: v.$primary-color;
     color: #fff;
-    padding: 15px 0;
-    width: 70%;
+    padding: 15px 20px;
     border: none;
     border-radius: 4px;
     text-transform: uppercase;
     cursor: pointer;
     font-family: v.$secondary-font-family;
-  
+    font-size: 16px; 
+    margin-top: 15px;
+    width: 90%;
+    max-width: 300px;
+    min-width: 200px; 
+
+    &:hover {
+      background-color: darken(v.$primary-color, 10%);
+      text-decoration: none;
+    }
   }
 }
 
-
 @include m.forSize(desktop) {
   .checkout {
-  
+    .checkout-info,
     .delivery-info {
-      padding: 15px;
-      width: 50%;
+      padding: 30px;
+      width: 60%;
       margin: auto;
-      margin-top: 20px;
-      height: 30vh;
     }
 
     form {
       input,
-      select,
       button {
         font-size: 18px;
       }
+
+      select {
+        font-size: 18px;
+        padding: 12px;
+      }
     }
   }
-
   #thank-you-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 80%;
-    height: 55vh;
-    padding-top: 50px;
-    margin: auto;
+    width: 60%;
+    height: 65vh; 
 
-    h2, p {
-      font-size: 24px;
-      margin-bottom: 10px;
-      margin: 20px; 
+    h2 {
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 20px; 
     }
 
     button {
-      width: 40%;
-      padding: 15px 0;
-      margin-top: 20px;
+      width: 60%; 
+      max-width: 400px;
+      min-width: 250px; 
     }
   }
 }
