@@ -13,8 +13,11 @@ main {
     margin-bottom: 15px;
 
     h2 {
-      font-size: v.$h2-font-size;
+      font-size: v.$h2-font-size-mobile;
       font-family: v.$secondary-font-family;
+      @include m.forSize(desktop) {
+        font-size: v.$h2-font-size-desktop;
+      }
     }
 
     div {
@@ -37,8 +40,11 @@ main {
         text-decoration: none;
         text-transform: uppercase;
         font-family: v.$primary-font-family;
+        font-size: 12px;
         letter-spacing: 1px;
-
+        @include m.forSize(desktop) {
+          font-size: 14px;
+        }
         &:hover {
           font-weight: 500;
         }
@@ -108,13 +114,22 @@ main {
         gap: 2px;
         font-family: v.$primary-font-family;
         .homepage-product-title {
-          font-size: v.$h4-font-size;
+          font-size: v.$h3-font-size-mobile;
           font-weight: 300;
           letter-spacing: 0.5px;
+          @include m.forSize(desktop) {
+            font-size: v.$h3-font-size-desktop;
+          
+          }
         }
 
         .homepage-product-price {
-          font-size: 12px;
+          font-size: v.$body-text-font-size-mobile;
+          letter-spacing: 0.5px;
+          @include m.forSize(desktop) {
+            font-size: v.$body-text-font-size-desktop;
+          
+          }
         }
       }
     }
