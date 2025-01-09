@@ -1,4 +1,4 @@
-import { CartItem } from "../models/Product";
+import { CartItem } from "../../models/Product";
 
 const cartProductsSection = document.querySelector(".checkout-info") as HTMLElement;
 const checkoutForm = document.querySelector("form") as HTMLFormElement;
@@ -31,7 +31,6 @@ const updateProductQuantity = (
     }
 };
 
-// Remove item from cat
 const removeFromCart = (
     product: CartItem["product"],
     selectedSize: CartItem["selectedSize"]
@@ -68,14 +67,12 @@ export const renderCartItems = (cartItems: CartItem[]) => {
         const productContainer = document.createElement("section");
         productContainer.classList.add("checkout-product");
 
-        // Product Image
         const productImage = document.createElement("img");
         productImage.src = item.product.imageUrl;
         productImage.alt = item.product.title;
         productImage.classList.add("checkout-product-image");
         productContainer.appendChild(productImage);
 
-        // Product Info
         const productInfo = document.createElement("div");
         productInfo.classList.add("checkout-product-info");
 
@@ -87,7 +84,6 @@ export const renderCartItems = (cartItems: CartItem[]) => {
         size.textContent = `Size: ${item.selectedSize.size}`; 
         productInfo.appendChild(size);
 
-        // Quantity Controls
         const quantityContainer = document.createElement("div");
         quantityContainer.classList.add("quantity-container");
 
@@ -157,9 +153,10 @@ document.addEventListener("DOMContentLoaded", () => {
 export const saveProgress = () => {
     if (checkoutForm) {
         const inputs = checkoutForm.querySelectorAll("input");
-        inputs.forEach((input) => {
+        for (let i = 0; i < inputs.length; i++) {
+            const input = inputs[i];
             localStorage.setItem(input.placeholder, input.value);
-        });
+        };
     }
 };
 

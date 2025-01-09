@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="/src/scss/style.scss" rel="stylesheet" />
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <title>Liora</title>
   </head>
 <body>
-
     <header>
         <nav>
-          
-          
           <h1 class="logo">
             <a href="/index.html">LIORA</a>
           </h1>
-          
         </nav>
       </header>
 
      <main>
     <section class="checkout">
         <h2>Check out</h2>
-        <section class="checkout-info">
-          
-        </section>
-
+        <section class="checkout-info"></section>
         
         <section class="delivery-info">
             <h3>Delivery information</h3>
@@ -41,14 +34,11 @@
                 <option value="5">Standard Shipping - $5</option>
                 <option value="10">Express Shipping - $10</option>
                 <option value="20">Overnight Shipping - $20</option>
-
               </select>
               
               <button type="submit">Complete Order</button>
-          </form>
-          
+            </form>  
         </section>
-        
     </section>
 
       <section id="thank-you-section">
@@ -56,7 +46,6 @@
         <p>Your purchase has been confirmed.</p>
         <button id="go-home">Continue to Homepage</button>
       </section>
-
     </main>
 
     <footer>
@@ -95,8 +84,6 @@
           </section>
       </footer>
 
-      <script type="module" src="/src/data/checkoutPage.ts"></script>
-
-
+      <script type="module" src="/src/ts/functions/checkoutPage.ts"></script>
 </body>
 </html>
