@@ -7,7 +7,7 @@ A poster webshop built with [Vite](https://vite.dev/) and together with two clas
 - SCSS
 - TypeScript
 
-## Requirement
+## Requirements
 
 - A landing page (homepage)
 - A product page (product details)
